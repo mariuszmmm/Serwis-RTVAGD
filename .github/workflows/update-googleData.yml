@@ -1,0 +1,107 @@
+name: Update googleData.json
+
+on:
+  schedule:
+    - cron: "0 */12 * * *" # co 12 godzin
+  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - "Update imageParameters.json and sitemap.xml"
+    types:
+      - completed
+
+permissions:
+  contents: write
+
+jobs:
+  update-googleData:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout kodu z main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Uruchom update-googleData.js (do /tmp)
+        env:
+          NEXT_PUBLIC_GOOGLE_API_KEY: ${{ secrets.NEXT_PUBLIC_GOOGLE_API_KEY }}
+          NEXT_PUBLIC_PLACE_ID: ${{ secrets.NEXT_PUBLIC_PLACE_ID }}
+        run: |
+          mkdir -p /tmp
+          node public/scripts/update_googleData.js /tmp/googleData.json
+
+      - name: Pobierz googleData.json z brancha data
+        run: |
+          git fetch origin data
+          git show origin/data:public/googleData.json > /tmp/googleData.repo.json || echo '{}' > /tmp/googleData.repo.json
+
+      - name: Porównaj googleData.json bez update_time
+        id: compare_googledata
+        run: node public/scripts/compare-googleData.js /tmp/googleData.json /tmp/googleData.repo.json
+        continue-on-error: true
+
+      - name: Ustaw SHOULD_UPDATE na true (dla workflow update-main)
+        if: github.event.workflow.name == 'Update imageParameters.json and sitemap.xml'
+        run: echo "SHOULD_UPDATE=true" >> $GITHUB_ENV
+
+      - name: Zakończ workflow jeśli brak zmian
+        if: steps.compare_googledata.outcome == 'success' && env.SHOULD_UPDATE != 'true'
+        run: |
+          echo "Brak zmian w googleData.json – kończę workflow."
+          exit 0
+
+      - name: Przywróć package-lock.json
+        if: steps.compare_googledata.outcome == 'failure' || env.SHOULD_UPDATE == 'true'
+        run: |
+          git restore package-lock.json || true
+
+      - name: Przełącz na branch data
+        if: steps.compare_googledata.outcome == 'failure' || env.SHOULD_UPDATE == 'true'
+        run: |
+          git checkout data
+
+      - name: Utwórz katalog public
+        if: steps.compare_googledata.outcome == 'failure' || env.SHOULD_UPDATE == 'true'
+        run: |
+          mkdir -p public
+
+      - name: Skopiuj googleData.json z /tmp do public
+        if: steps.compare_googledata.outcome == 'failure' || env.SHOULD_UPDATE == 'true'
+        run: |
+          cp /tmp/googleData.json public/googleData.json
+
+      - name: Commit i push googleData.json
+        if: steps.compare_googledata.outcome == 'failure' || env.SHOULD_UPDATE == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/googleData.json
+          git commit -m "Automatyczna aktualizacja danych: $(date -u '+%Y-%m-%d %H:%M UTC')" || echo "Brak zmian do commitowania"
+          git push origin data
+
+      - name: Skopiuj googleData.json do /tmp przed publikacją
+        if: steps.compare_googledata.outcome == 'failure' || env.SHOULD_UPDATE == 'true'
+        run: |
+          cp public/googleData.json /tmp/data.json
+
+      - name: Publikuj data.json na GitHub Pages (gh-pages)
+        if: steps.compare_googledata.outcome == 'failure' || env.SHOULD_UPDATE == 'true'
+        run: |
+          git fetch origin gh-pages
+          git checkout gh-pages
+          cp /tmp/data.json data.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          git commit -m "Aktualizacja data.json na GitHub Pages: $(date -u '+%Y-%m-%d %H:%M UTC')" || echo "Brak zmian do commitowania"
+          git push origin gh-pages

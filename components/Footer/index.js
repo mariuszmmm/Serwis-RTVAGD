@@ -10,36 +10,76 @@ import {
   PhoneIcon,
   StyledLink,
   LinkIcon,
+  LocationIcon,
 } from "./styled";
 import { serwis } from "../../utils/serwis";
+import { SubTitle } from "../common/SubTitle";
+import { appUrls } from "../../utils/urls";
 
 const Footer = () => (
-  <FooterWrapper>
+  <FooterWrapper
+  // itemScope
+  // itemType="https://schema.org/WPFooter"
+  >
     <FooterContainer>
+      <SubTitle>{serwis.shortName}</SubTitle>
       <FooterInfo>
-        <StyledLink href={`tel:${serwis.phone}`} >
-          <PhoneIcon />
-          <FooterText>{serwis.phone} </FooterText>
+        <StyledLink
+          $area="adres"
+          href={serwis.url.GMF}
+          rel="noopener noreferrer"
+          title="Adres"
+        >
+          <LocationIcon />
+          <FooterText>ul. {serwis.adres} </FooterText>
         </StyledLink>
-        <StyledLink href={`mailto:${serwis.email}`}>
+        <StyledLink
+          $area="telefon"
+          href={`tel:${serwis.phone.number}`}
+          title="Telefon"
+        >
+          <PhoneIcon />
+          <FooterText>{serwis.phone.formatted} </FooterText>
+        </StyledLink>
+        <StyledLink
+          $area="email"
+          href={`mailto:${serwis.email}`}
+          title="E-mail"
+        >
           <EmailIcon />
           <FooterText>{serwis.email} </FooterText>
         </StyledLink>
-        <StyledLink href={serwis.url.facebook}>
+        <StyledLink
+          $area="facebook"
+          href={serwis.url.facebook}
+          rel="noopener noreferrer"
+          title="Facebook"
+        // itemProp="sameAs"
+        >
           <FacebookIcon />
-          <FooterText>facebook</FooterText>
+          <FooterText>Facebook</FooterText>
         </StyledLink>
-        <StyledLink href={"https://naprawaprzemysl.pl/"} $link>
+        <StyledLink
+          $area="link"
+          href={appUrls.home}
+          title="naprawaprzemysl.pl"
+        >
           <LinkIcon />
           <FooterText>{"naprawaprzemysl.pl"} </FooterText>
         </StyledLink>
-        <StyledLink href={serwis.url.google}>
+        <StyledLink
+          $area="google"
+          href={serwis.url.GMF}
+          rel="noopener noreferrer"
+          title="Google"
+        // itemProp="sameAs"
+        >
           <GoogleIcon />
-          <FooterText>google</FooterText>
+          <FooterText>Google</FooterText>
         </StyledLink>
       </FooterInfo>
       <FooterCopy>
-        &copy; 2024 {serwis.name}. Wszelkie prawa zastrzeżone.
+        © 2025 {serwis.shortName}. Wszelkie prawa zastrzeżone.
       </FooterCopy>
     </FooterContainer>
   </FooterWrapper>

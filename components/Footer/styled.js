@@ -4,6 +4,7 @@ import Envelope from "../../public/icons/envelope.svg";
 import Phone from "../../public/icons/phone.svg";
 import Google from "../../public/icons/address-card.svg";
 import Link from "../../public/icons/link.svg";
+import Location from "../../public/icons/location.svg";
 
 export const FooterWrapper = styled.footer`
   background-color: ${({ theme }) => theme.color.primary};
@@ -18,28 +19,36 @@ export const FooterWrapper = styled.footer`
 export const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 15px;
   max-width: 1500px;
   margin: 10px auto 0;
   padding: 0 20px;
   height: 100%;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}) {
-    align-items: flex-start;
+  & > :first-child {
+    padding-left: 5px;
   }
 `;
 
 export const FooterInfo = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, auto);
   align-content: center;
   width: 100%;
   gap: 5px clamp(10px, 0.9vw, 200px);
+  margin-bottom: 10px;
+
+  grid-template-areas:
+    "telefon  google"
+    "email facebook"
+    "adres link";
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}) {
-    grid-template-columns: repeat(2, auto);
-    padding: 0 200px 0 20px;
+    grid-template-areas:
+      "telefon google"
+      "email facebook"
+      "link link"
+      "adres adres";
   }
 `;
 
@@ -62,6 +71,8 @@ export const FooterCopy = styled.p`
 const styledIcon = css`
   width: 2vw;
   height: 2vw;
+  max-width: 2rem;
+  max-height: 2rem;
 `;
 
 export const EmailIcon = styled(Envelope)`
@@ -83,32 +94,20 @@ export const LinkIcon = styled(Link)`
   ${styledIcon}
 `;
 
+export const LocationIcon = styled(Location)`
+  ${styledIcon}
+`;
+
 export const StyledLink = styled.a`
+  grid-area: ${({ $area }) => $area};
   display: flex;
   align-items: center;
-  justify-self: center;
+  justify-self: left;
   gap: clamp(5px, 5.5vw, 10px);
   padding: 5px;
   color: ${({ theme }) => theme.color.white};
   text-decoration: none;
   transition: color 0.2s ease;
-
-  ${({ $link }) => $link && css`
-        order: 1;
-    @media (max-width: ${({ theme }) => theme.breakpoint.medium}) {
-      order: 0;
-    }
-  `};
-
-  &:first-child {
-    @media (max-width: ${({ theme }) => theme.breakpoint.medium}) {
-      grid-column-end: span 2;
-    }
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}) {
-    justify-self: left;
-  }
 
   &:hover {
     color: ${({ theme }) => theme.color.button};

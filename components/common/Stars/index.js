@@ -1,4 +1,4 @@
-import { Star, StarsWrapper } from "../../../styles/opinie/ReviewsItem/Stars/StarsStyled";
+import { Star, StarsWrapper } from "./styled";
 
 export const Stars = ({ rating, center }) => (
   rating &&

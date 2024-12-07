@@ -1,50 +1,107 @@
-import {
-  ContactSection, ContactContainer, ContactInfo,
-  ContactText, StyledLink, ImageContainer
-} from "../../styles/kontakt/KontaktStyled";
+import { ContactSection, ContactContainer, ContactInfo, ContactText } from "../../styles/kontakt/KontaktStyled";
+import ContactForm from "../../components/ContactForm";
+import { StyledLink } from "../../components/common/StyledLink";
 import { SubTitle } from "../../components/common/SubTitle";
 import { Title } from "../../components/common/Title";
 import { serwis } from "../../utils/serwis";
-import ContactForm from "./ContactForm";
-import ConatctMetaTags from "./ConatctMetaTags"
-import Iframe from "./Iframe";
-import { getSharedStaticProps } from "../../utils/getSharedStaticProps";
+import Iframe from "../../components/Iframe";
+import MetaTags from "../../components/common/MetaTags";
+import { getDataForMetaTags } from "../../utils/dataForMetaTags";
+import { ImageContainer } from "../../styles/kontakt/KontaktStyled";
+import { getGoogleData } from "../../utils/getGoogleData";
+import { appUrls } from "../../utils/urls";
+import { getImageParameters } from "../../utils/getImageParameters";
 
-const Contact = () => (
-  < ContactSection >
-    <ConatctMetaTags />
-    <ContactContainer>
-      <Title>Kontakt</Title>
-      <ContactForm />
-      <ContactInfo>
-        <SubTitle>{serwis.name}</SubTitle>
-        <ContactText>
-          adres:{"  "}
-          <StyledLink href={serwis.url.mapaGoogle} title={serwis.adres}>{serwis.adres}</StyledLink>
-        </ContactText>
-        <ContactText>
-          e-mail:{" "}
-          <StyledLink href={`mailto:${serwis.email}`} title={serwis.email}>{serwis.email}</StyledLink>
-        </ContactText>
-        <ContactText>
-          telefon:{" "}
-          <StyledLink href={`tel:${serwis.phone}`} title={(serwis.phone).replace(/(\d{3})(\d{3})(\d{3})/, '$1-$2-$3')}>{serwis.phone}</StyledLink>
-        </ContactText>
-        <br />
-        <ContactText>NIP: 7952257951</ContactText>
-        <br />
-        <ContactText>Zapraszamy od poniedziałku do piątku</ContactText>
-        <ContactText>
-          w godzinach <>9.30-17.00</>
-        </ContactText>
-        <ImageContainer>
-          <Iframe />
-        </ImageContainer>
-      </ContactInfo>
-    </ContactContainer>
-  </ContactSection >
-);
+const Contact = ({ rating, ratingsTotal, dataForMetaTags }) => {
+  const path = appUrls.kontakt;
 
-export const getStaticProps = getSharedStaticProps;
+  return (
+    <>
+      <MetaTags
+        path={path}
+        page={dataForMetaTags}
+        rating={rating}
+        ratingsTotal={ratingsTotal}
+      />
+      <ContactContainer>
+        <Title>Kontakt</Title>
+        <ContactSection>
+          <ContactForm />
+          <ContactInfo>
+            <SubTitle>
+              <StyledLink
+                href={appUrls.home}
+                title={serwis.name}
+              >
+                {serwis.shortName}
+              </StyledLink>
+            </SubTitle>
+            <ContactText>
+              adres:{"  "}
+              <span>
+                <StyledLink
+                  href={serwis.url.GMF}
+                  rel="noopener noreferrer"
+                  title={serwis.adres}
+                >
+                  {serwis.adres}
+                </StyledLink>
+              </span>
+            </ContactText>
+            <ContactText>
+              e-mail:{" "}
+              <span>
+                <StyledLink
+                  href={`mailto:${serwis.email}`}
+                  title={serwis.email}
+                >
+                  {serwis.email}
+                </StyledLink>
+              </span>
+            </ContactText>
+            <ContactText>
+              telefon:{" "}
+              <span>
+                <StyledLink
+                  href={`tel:${serwis.phone.number}`}
+                  title={serwis.phone.international}
+                >
+                  {serwis.phone.international}
+                </StyledLink>
+              </span>
+            </ContactText>
+            <br />
+            <ContactText>NIP: 7952257951</ContactText>
+            <br />
+            <ContactText>Zapraszamy od poniedziałku do piątku</ContactText>
+            <ContactText>
+              w godzinach 9.30-17.00
+            </ContactText>
+            <ImageContainer>
+              <Iframe />
+            </ImageContainer>
+          </ContactInfo>
+
+        </ContactSection>
+      </ContactContainer>
+    </>
+  );
+};
+
+export const getStaticProps = async () => {
+  const [googleData, imageParameters, dataForMetaTags] = await Promise.all([
+    getGoogleData(),
+    getImageParameters(["serwis_rtv_agd"]),
+    getDataForMetaTags("kontakt")
+  ]);
+
+  return {
+    props: {
+      ...(googleData || {}),
+      imageParameters: imageParameters || null,
+      dataForMetaTags: dataForMetaTags || null,
+    },
+  };
+};
 
 export default Contact;

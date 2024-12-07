@@ -1,82 +1,85 @@
-import { Section } from "../../components/common/Section";
+import { Container } from "../../components/common/Container";
 import { Title } from "../../components/common/Title";
-import { ReviewsContainer } from "../../styles/opinie/OpinieStyled";
 import ReviewsItem from "../../components/ReviewsItem";
 import { serwis } from "../../utils/serwis";
-import { StyledButtonLink } from "../../components/common/Buttons";
-import ReviewsMetaTags from "./ReviewsMetaTags";
-import axios from 'axios';
-import { reviewUrl } from "../../utils/urls";
-import { getSharedStaticProps } from "../../utils/getSharedStaticProps";
+import { ButtonLink } from "../../components/common/ButtonLink";
+import MetaTags from "../../components/common/MetaTags";
+import { getDataForMetaTags } from "../../utils/dataForMetaTags";
+import { getGoogleData } from "../../utils/getGoogleData";
+import { Section } from "../../components/common/Section";
+import { HeroText } from "../../components/common/Hero/HeroText";
+import { appUrls } from "../../utils/urls";
+import { getImageParameters } from "../../utils/getImageParameters";
 
-const Reviews = ({ status, reviews }) => (
-  <Section>
-    <ReviewsMetaTags />
-    <ReviewsContainer>
-      <Title>Opinie Klientów</Title>
-      {status === "loading" && <p>Ładowanie opinii z google...</p>}
-      {status === "success" && reviews.map((item, index) => (
-        <ReviewsItem
-          item={item}
-          key={index}
-        />
-      ))}
-      {status === "error" &&
-        <>
-          <p>Wystąpił błąd podczas ładowania opinii.</p>
-          <p> Proszę spróbować ponownie później.</p>
-        </>
-      }
-    </ReviewsContainer>
-    {status === "success" && <StyledButtonLink href={serwis.url.addTestimonial}>
-      Wystaw opinię
-    </StyledButtonLink>}
-  </Section>
-);
+const Reviews = ({ status, reviews, rating, ratingsTotal, dataForMetaTags }) => {
+  const path = appUrls.opinie;
 
-export async function getStaticProps() {
-  const sharedProps = await getSharedStaticProps();
+  return (
+    <>
+      <MetaTags
+        path={path}
+        page={dataForMetaTags}
+        rating={rating}
+        ratingsTotal={ratingsTotal}
+        reviews={reviews}
+      />
+      <Container>
+        <Section>
+          <Title>Opinie Klientów</Title>
+          {reviews ?
+            reviews.map((item, index) => (
+              <ReviewsItem
+                item={item}
+                key={item.time}
+                reviewIndex={index + 1}
+              />
+            ))
+            :
+            <>
+              <p>Wystąpił błąd podczas ładowania opinii.</p>
+              <p> Proszę spróbować ponownie później.</p>
+            </>
+          }
+        </Section>
 
-  try {
-    const response = await axios(reviewUrl)
-    const reviews = response.data?.reviews || [];
+        {reviews &&
+          <Section>
+            <HeroText>
+              <strong>Czy jesteś zadowolony z usług? Podziel się swoim doświadczeniem i pomóż innym klientom w podejmowaniu najlepszych decyzji!</strong>
+            </HeroText>
+            <ButtonLink
+              href={serwis.url.addTestimonial}
+              rel="noopener noreferrer"
+            >
+              Zostaw swoją opinię
+            </ButtonLink>
+          </Section>}
 
-    if (!Array.isArray(reviews)) {
-      throw new Error('Invalid response from Google Places API');
-    };
+      </Container>
+    </>
+  );
+};
 
-    let newReviews = [...reviews];
-    if (reviews.length < 5) {
-      let reserveReviews = serwis.reviews.filter((item) =>
-        !newReviews.find((review) => review.text === item.text));
-      let reserveReviewsIndex = 0;
+// export const getStaticProps = async () => {
+//   const data = await getGoogleData();
 
-      while (newReviews.length < 5 && reserveReviewsIndex < reserveReviews.length) {
-        newReviews = [...newReviews, reserveReviews[reserveReviewsIndex]];
-        reserveReviewsIndex++;
-      };
-    }
+//   return { props: { ...data || null } };
+// };
 
-    return {
-      ...sharedProps,
-      props: {
-        ...sharedProps.props,
-        status: 'success',
-        reviews: newReviews,
-      },
-    };
-  } catch (error) {
-    console.error('Error fetching reviews:', error);
-    return {
-      ...sharedProps,
-      props: {
-        ...sharedProps.props,
-        status: 'error',
-        reviews: [],
-        error: error.message,
-      },
-    };
-  }
-}
+export const getStaticProps = async () => {
+  const [googleData, imageParameters, dataForMetaTags] = await Promise.all([
+    getGoogleData(),
+    getImageParameters(["serwis_rtv_agd"]),
+    getDataForMetaTags("opinie")
+  ]);
+
+  return {
+    props: {
+      ...(googleData || {}),
+      imageParameters: imageParameters || null,
+      dataForMetaTags: dataForMetaTags || null,
+    },
+  };
+};
 
 export default Reviews;

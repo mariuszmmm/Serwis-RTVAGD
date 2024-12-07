@@ -1,0 +1,70 @@
+name: Deploy to GitHub Pages
+
+on:
+  workflow_run:
+    workflows:
+      - "Update googleData.json"
+    types:
+      - completed
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sprawdź commit na gh-pages z ostatnich 3 minut (tylko dla googleData)
+        if: github.event.workflow.name == 'Update googleData.json'
+        id: check_commit
+        run: |
+          git init
+          git remote add origin https://github.com/${{ github.repository }}.git
+          git fetch origin gh-pages --depth=1
+          git checkout gh-pages
+          LAST_COMMIT_AUTHOR=$(git log -1 --pretty=format:'%an')
+          LAST_COMMIT_DATE=$(git log -1 --pretty=format:'%ct')
+          NOW=$(date +%s)
+          AGE=$((NOW - LAST_COMMIT_DATE))
+          if [ "$LAST_COMMIT_AUTHOR" = "github-actions[bot]" ] && [ $AGE -le 180 ]; then
+            echo "SHOULD_DEPLOY=true" >> $GITHUB_ENV
+          else
+            echo "SHOULD_DEPLOY=false" >> $GITHUB_ENV
+          fi
+
+      - name: Ustaw SHOULD_DEPLOY na true (dla innych workflow)
+        if: github.event.workflow.name != 'Update googleData.json'
+        run: echo "SHOULD_DEPLOY=true" >> $GITHUB_ENV
+
+      - name: Checkout kodu z main
+        if: env.SHOULD_DEPLOY == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Node.js
+        if: env.SHOULD_DEPLOY == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        if: env.SHOULD_DEPLOY == 'true'
+        run: npm ci
+
+      - name: Build static site
+        if: env.SHOULD_DEPLOY == 'true'
+        run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_URL: ${{ vars.NEXT_PUBLIC_BASE_URL }}
+          NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: ${{ secrets.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME }}
+          NEXT_PUBLIC_CLOUDINARY_API_KEY: ${{ secrets.NEXT_PUBLIC_CLOUDINARY_API_KEY }}
+          NEXT_PUBLIC_CLOUDINARY_API_SECRET: ${{ secrets.NEXT_PUBLIC_CLOUDINARY_API_SECRET }}
+
+      - name: Copy CNAME to build output
+        if: env.SHOULD_DEPLOY == 'true'
+        run: cp public/CNAME ./out/CNAME
+
+      - name: Deploy to GitHub Pages
+        if: env.SHOULD_DEPLOY == 'true'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out

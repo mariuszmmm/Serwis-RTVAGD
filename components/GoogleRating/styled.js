@@ -6,7 +6,7 @@ export const Wrpper = styled.div`
   top: 82px;
   left: 20px;
   opacity: 1;
-  transition: opacity 0.2s ease;
+  transition:  opacity 0.1s ease;
 
   ${({ $hidden }) => $hidden && css`
       opacity: 0;

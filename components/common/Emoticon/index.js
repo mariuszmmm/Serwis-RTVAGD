@@ -1,14 +1,16 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Emoticon = styled.img`
-  width: clamp(2.8rem, 5vw, 4.8rem);
-  height: clamp(2.8rem, 5vw, 4.8rem);
+export const Emoticon = styled.span`
+  position: relative;
+  width: clamp(1.5rem, 3vw, 2rem);
+  aspect-ratio: 1;
   display: inline-block;
   vertical-align: middle;
   margin-left: 10px ;
-  margin-bottom: 10px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}) {
-    opacity: 0;
-  }
-`;
+  margin-bottom: 4px;
+ 
+  ${({ $logo }) => $logo && css`
+    margin: 0;
+    width: clamp(0.8rem, 2.5vw, 1.5rem);
+  `}
+`; 

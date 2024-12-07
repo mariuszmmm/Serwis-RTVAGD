@@ -1,18 +1,29 @@
-import { BackgroundWrapper, Circle, Image, Rotating } from "./styled.js";
-import { imageUrls } from "../../utils/urls";
+import { BackgroundImage } from "../common/BackgroundImage";
+import { BackgroundWrapper, Circle, Rotating } from "./styled";
+import { usePathname } from "next/navigation";
 
-const Background = () => {
+const Background = ({ dataForMetaTags, imageParameters }) => {
+  const pathname = usePathname() || "";
+  const isServicesPath = pathname.includes("naprawa-");
+
   return (
     <BackgroundWrapper>
-      <Image
-        src={imageUrls.serwis}
-        alt="Background image"
-        loading="lazy"
-      />
+      {
+        !isServicesPath && imageParameters && dataForMetaTags &&
+        <BackgroundImage
+          src={imageParameters.serwis_rtv_agd?.imageUrl}
+          srcSet={imageParameters.serwis_rtv_agd?.srcSet}
+          width={dataForMetaTags.metaTags?.imageWidth}
+          height={dataForMetaTags.metaTags?.imageHeight}
+          title={dataForMetaTags.metaTags?.imageTitle}
+          alt={dataForMetaTags.metaTags?.imageAlt}
+          loading="eager"
+        />
+      }
       <Rotating>
-        <Circle $top={"0"} $left={"0"}></Circle>
-        <Circle $top={"-80%"} $left={"30%"}></Circle>
-        <Circle $top={"-20%"} $left={"70%"}></Circle>
+        <Circle $top={"0%"} $left={"40%"}></Circle>
+        <Circle $top={"-70%"} $left={"10%"}></Circle>
+        <Circle $top={"0%"} $left={"-30%"}></Circle>
       </Rotating>
     </BackgroundWrapper>
   );

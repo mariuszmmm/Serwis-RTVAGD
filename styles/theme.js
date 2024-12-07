@@ -15,13 +15,15 @@ const theme = {
     background: "#252525",
     button: "#ff8c00",
     buttonHover: "#ff6f00",
+    buttonDisabled: "#ff8c0036",
     border: "#cccccc",
     tableHeader: "#252525",
     flamingo: "#eb5c20",
-    mineShaft: "#211c1c",
+    mineShaft: "#090807",
     start_1: "#ffbc00",
     start_2: "#d9d7d5",
     check: "#00ff00",
+    cross: "#ff0000",
   },
 };
 

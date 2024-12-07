@@ -73,7 +73,7 @@ export const StyledLink = styled(Link)`
   border-radius: 5px;
 
  
-  ${({ disabled }) => disabled && css`
+  ${({ $disabled }) => $disabled && css`
     cursor: auto;
   `}
 
@@ -97,7 +97,7 @@ export const StyledLink = styled(Link)`
 
   &:hover {
     background-color: ${({ theme }) => theme.color.emperor};
-    ${({ disabled }) => disabled && css`
+    ${({ $disabled }) => $disabled && css`
       background-color: ${({ theme }) => theme.color.primary};
     `};
   }
@@ -109,4 +109,8 @@ export const Logo = styled(Link)`
   font-size: clamp(0.5rem, 2.5vw, 1.3rem);
   font-weight: bold;
   padding-right: 5px;
+  display: flex;
+  /* flex-direction: row-reverse; */
+  align-items: center;
+  gap: 10px;
 `;

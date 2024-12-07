@@ -1,5 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 import { rgba } from "polished";
+import { Lato } from 'next/font/google';
+
+const lato = Lato({ subsets: ['latin'], weight: '400' });
+
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -29,9 +33,10 @@ const GlobalStyle = createGlobalStyle`
   };
 
   body {
-    font-family: "Lato", sans-serif;
+    font-family: ${lato.style.fontFamily}, sans-serif;
     margin: 0;
     padding: 0;
+    /* user-select: none; */
     box-sizing: border-box;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -42,7 +47,7 @@ const GlobalStyle = createGlobalStyle`
     background-repeat: no-repeat; 
     background-attachment: fixed; 
     color: ${({ theme }) => theme.color.white};
-    letter-spacing: 0.3px;
+    letter-spacing: 0.5px;
   };
 `;
 

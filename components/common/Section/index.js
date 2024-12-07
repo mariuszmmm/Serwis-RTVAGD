@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-  padding: 100px 0;
-  text-align: center;
-  min-height: 100vh;
+  max-width: 900px;
+  margin: 0 auto; 
+  padding: 0 20px 20px;
 `;

@@ -7,14 +7,18 @@ import {
   StyledLink,
 } from "./styled";
 import { serwis } from "../../utils/serwis";
-import { StyledButtonLink } from "../common/Buttons";
+import { ButtonLink } from "../common/ButtonLink";
 import { useEffect, useState } from "react";
 import SubNav from "./SubNav";
 import { usePathname } from 'next/navigation';
-import { sendGTMEvent } from '@next/third-parties/google';
-import { GoogleRating } from '../GoogleRating';
+import dynamic from 'next/dynamic';
+import { Emoticon } from '../common/Emoticon';
+import { appUrls, imageUrls } from '../../utils/urls';
+import Image from "next/image";
+const GoogleRating = dynamic(() => import('../GoogleRating').then(mod => mod.GoogleRating), { ssr: false });
+const QrCode = dynamic(() => import('../QrCode').then(mod => mod.QrCode), { ssr: false });
 
-const Header = ({ rating }) => {
+const Header = (props) => {
   const [scrolled, setScrolled] = useState(false);
   const [showSubNav, setShowSubNav] = useState(false);
   const pathname = usePathname()
@@ -30,6 +34,8 @@ const Header = ({ rating }) => {
       }
     };
 
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -38,18 +44,40 @@ const Header = ({ rating }) => {
   }, []);
 
   return (
-    <HeaderWrapper>
+    <HeaderWrapper
+    // itemScope
+    // itemType="https://schema.org/WPHeader"
+    >
       <HeaderContainer>
-        <Logo href="/">Serwis RTV&nbsp;i&nbsp;AGD</Logo>
+        <Logo
+          href={appUrls.home}
+          title={`${serwis.subName}`}
+        >
+          <Emoticon $logo>
+            <Image
+              src={imageUrls.logo}
+              alt={`Logo ${serwis.shortName}`}
+              fill
+            // itemProp="image"
+            />
+          </Emoticon>
+          {" "}{serwis.url.site}
+        </Logo>
         <nav>
           <NavList>
             <ListItem>
-              <StyledLink href="/" $active={pathname === "/"}>
+              <StyledLink
+                href={appUrls.home}
+                $active={pathname === "/"}
+              >
                 Strona Główna
               </StyledLink>
             </ListItem>
             <ListItem>
-              <StyledLink href="/o-mnie" $active={pathname === "/o-mnie/"}              >
+              <StyledLink
+                href={appUrls.o_mnie}
+                $active={pathname === "/o-mnie/"}
+              >
                 O mnie
               </StyledLink>
             </ListItem>
@@ -60,29 +88,43 @@ const Header = ({ rating }) => {
             >
               <StyledLink as="div"
                 $active={servicesPath && !showSubNav}
-                disabled
-              >Usługi
+                $disabled
+              >
+                Usługi
               </StyledLink>
-              <SubNav showSubNav={showSubNav} setShowSubNav={setShowSubNav} />
-            </ListItem>
-            <ListItem>
-              <StyledLink href="/opinie" $active={pathname === "/opinie/"}>Opinie</StyledLink>
+              <SubNav showSubNav={showSubNav} />
             </ListItem>
             <ListItem>
               <StyledLink
-                href="/kontakt"
+                href={appUrls.opinie}
+                $active={pathname === "/opinie/"}
+              >
+                Opinie
+              </StyledLink>
+            </ListItem>
+            <ListItem>
+              <StyledLink
+                href={appUrls.kontakt}
                 $active={pathname === "/kontakt/"}
-                onClick={() => sendGTMEvent({ event: 'buttonClicked', value: 'contact' })}
               >
                 Kontakt
               </StyledLink>
             </ListItem>
           </NavList>
         </nav>
-        <StyledButtonLink href={serwis.url.addTestimonial} $opinia $hidden={scrolled}>
-          Wystaw opinię
-        </StyledButtonLink>
-        {rating && <GoogleRating rating={rating} hidden={scrolled} />}
+        {props && <>
+          <ButtonLink
+            href={serwis.url.addTestimonial}
+            rel="noopener noreferrer"
+            $opinia
+            $hidden={scrolled}
+            title="Wystaw opinię"
+          >
+            Wystaw opinię
+          </ButtonLink>
+          <QrCode hidden={scrolled} />
+          <GoogleRating rating={props.rating} hidden={scrolled} />
+        </>}
       </HeaderContainer>
     </HeaderWrapper>
   );

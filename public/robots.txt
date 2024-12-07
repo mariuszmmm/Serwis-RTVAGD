@@ -1,4 +1,10 @@
 User-agent: *
-Disallow:
+Allow: /
+
+User-agent: AhrefsSiteAudit
+Allow: /
+
+User-agent: AhrefsBot
+Allow: /
 
 Sitemap: https://naprawaprzemysl.pl/sitemap.xml
