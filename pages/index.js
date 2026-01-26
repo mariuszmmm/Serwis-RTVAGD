@@ -95,9 +95,6 @@ const Home = ({ rating, ratingsTotal, reviews, dataForMetaTags }) => {
           <ButtonLink href={`tel:${serwis.phone.number}`} title='Naprawa RTV i AGD Przemyśl - Zadzwoń teraz' $hero>
             Zleć naprawę
           </ButtonLink>
-
-          {!activeScene.reset && console.log("WashingMachine", activeScene.content[0])}
-
           {!activeScene.reset && <WashingMachine show={activeScene.content[0]} setHold={setHold} left />}
           {!activeScene.reset && <Television show={activeScene.content[1]} setHold={setHold} left />}
           {!activeScene.reset && <Dryer show={activeScene.content[2]} setHold={setHold} left />}
