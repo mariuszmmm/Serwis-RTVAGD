@@ -26,6 +26,7 @@
     "start": "next dev",
     "dev": "next dev",
     "build": "next build",
+    "export": "next export",
     "update-googleData": "node public/scripts/update_googleData.js",
     "update-imageParameters": "node public/scripts/update_imageParameters.js",
     "update-sitemap": "node public/scripts/update_sitemap.js"

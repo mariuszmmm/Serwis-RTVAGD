@@ -1,5 +1,3 @@
-const basePath = process.env.NEXT_PUBLIC_BASE_URL || "";
-
 const nextConfig = {
   reactStrictMode: true,
   output: "export",
@@ -14,8 +12,6 @@ const nextConfig = {
     return config;
   },
   trailingSlash: true,
-  basePath,
-  assetPrefix: basePath,
 };
 
 module.exports = nextConfig;
