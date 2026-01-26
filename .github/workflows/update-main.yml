@@ -50,6 +50,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: update-files
 
-    steps:
-      - name: Trigger Netlify build
-        run: curl -X POST -d {} ${{ secrets.NETLIFY_BUILD_HOOK }}
+#    steps:
+#      - name: Trigger Netlify build
+#        run: curl -X POST -d {} ${{ secrets.NETLIFY_BUILD_HOOK }}
