@@ -3,10 +3,10 @@ name: Update googleData.json
 on:
   schedule:
     # - cron: "0 */10 * * *"   # co 10 min
-    # - cron: "0 */1 * * *"    # co 1 godzin
+    - cron: "0 */1 * * *" # co 1 godzin
     # - cron: "0 */12 * * *"   # co 12 godzin
     # - cron: "0 0 * * *"      # co dziennie o północy
-    - cron: "0 0 1 * *" # raz w miesiącu (pierwszy dzień o północy UTC)
+    # - cron: "0 0 1 * *" # raz w miesiącu (pierwszy dzień o północy UTC)
 
   workflow_dispatch:
 
