@@ -34,9 +34,6 @@ jobs:
         env:
           NEXT_PUBLIC_BASE_URL: ${{ vars.NEXT_PUBLIC_BASE_URL }}
 
-      - name: Export static site
-        run: npm run export
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
