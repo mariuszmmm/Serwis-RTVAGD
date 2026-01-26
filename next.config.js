@@ -14,8 +14,8 @@ const nextConfig = {
     return config;
   },
   trailingSlash: true,
-  basePath: isGithubPages ? "/Serwis-RTVAGD" : "",
-  assetPrefix: isGithubPages ? "/Serwis-RTVAGD/" : "",
+  basePath: "",
+  assetPrefix: "",
 };
 
 module.exports = nextConfig;
