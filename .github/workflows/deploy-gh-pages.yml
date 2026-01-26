@@ -24,6 +24,11 @@ jobs:
       - name: Print env
         run: printenv
 
+      - name: Log NEXT_PUBLIC_BASE_URL
+        run: echo "NEXT_PUBLIC_BASE_URL=${{ vars.NEXT_PUBLIC_BASE_URL }}"
+        env:
+          NEXT_PUBLIC_BASE_URL: ${{ vars.NEXT_PUBLIC_BASE_URL }}
+
       - name: Build static site
         run: npm run build
         env:
