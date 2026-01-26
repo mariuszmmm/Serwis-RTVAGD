@@ -1,3 +1,5 @@
+const isGithubPages = process.env.GITHUB_PAGES === "true";
+
 const nextConfig = {
   reactStrictMode: true,
   output: "export",
@@ -12,6 +14,8 @@ const nextConfig = {
     return config;
   },
   trailingSlash: true,
+  basePath: isGithubPages ? "/Serwis-RTVAGD" : "",
+  assetPrefix: isGithubPages ? "/Serwis-RTVAGD/" : "",
 };
 
 module.exports = nextConfig;
