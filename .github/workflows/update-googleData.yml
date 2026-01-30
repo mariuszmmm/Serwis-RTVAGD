@@ -64,9 +64,9 @@ jobs:
         run: |
           node scripts/compare-googleData.js
           if [ $? -eq 2 ]; then
-            echo "::set-output name=changed::true"
+            echo "changed=true" >> $GITHUB_OUTPUT
           else
-            echo "::set-output name=changed::false"
+            echo "changed=false" >> $GITHUB_OUTPUT
           fi
         continue-on-error: true
 
@@ -95,6 +95,17 @@ jobs:
         if: steps.compare_googledata.outputs.changed == 'true'
         run: |
           cp /tmp/googleData.json public/googleData.json
+
+      - name: Debug – pokaż googleData.json na branchu data
+        if: steps.compare_googledata.outputs.changed == 'true'
+        run: |
+          echo 'Zawartość public/googleData.json na branchu data:'
+          cat public/googleData.json
+
+      - name: Debug – git status przed commitem
+        if: steps.compare_googledata.outputs.changed == 'true'
+        run: |
+          git status
 
       - name: Commit i push googleData.json
         if: steps.compare_googledata.outputs.changed == 'true'
