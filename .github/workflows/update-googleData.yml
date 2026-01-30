@@ -66,17 +66,36 @@ jobs:
         continue-on-error: true
 
       # 8. Commit i push tylko jeśli są inne zmiany niż update_time
+      - name: Skopiuj googleData.json do /tmp
+        if: steps.compare_googledata.outcome == 'failure' && steps.compare_googledata.conclusion == 'success'
+        run: |
+          cp public/googleData.json /tmp/googleData.json
+
       - name: Resetuj package-lock.json
         if: steps.compare_googledata.outcome == 'failure' && steps.compare_googledata.conclusion == 'success'
         run: |
           git restore package-lock.json
 
-      - name: Przełącz na branch data i commituj zmiany
+      - name: Przełącz na branch data
+        if: steps.compare_googledata.outcome == 'failure' && steps.compare_googledata.conclusion == 'success'
+        run: |
+          git checkout data
+
+      - name: Utwórz katalog public
+        if: steps.compare_googledata.outcome == 'failure' && steps.compare_googledata.conclusion == 'success'
+        run: |
+          mkdir -p public
+
+      - name: Skopiuj googleData.json z /tmp do public
+        if: steps.compare_googledata.outcome == 'failure' && steps.compare_googledata.conclusion == 'success'
+        run: |
+          cp /tmp/googleData.json public/googleData.json
+
+      - name: Commit i push googleData.json
         if: steps.compare_googledata.outcome == 'failure' && steps.compare_googledata.conclusion == 'success'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout data
           git add public/googleData.json
           git commit -m "Automatyczna aktualizacja danych: $(date -u '+%Y-%m-%d %H:%M UTC')" || echo "Brak zmian do commitowania"
           git push origin data
