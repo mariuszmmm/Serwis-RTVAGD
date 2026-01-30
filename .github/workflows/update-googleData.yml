@@ -19,10 +19,10 @@ jobs:
 
     steps:
       # 1. Checkout kodu
-      - name: Checkout branch data
+      - name: Checkout kodu z main
         uses: actions/checkout@v3
         with:
-          ref: data
+          ref: main
           fetch-depth: 0
 
       # 2. Ustaw Node.js
@@ -66,12 +66,12 @@ jobs:
         continue-on-error: true
 
       # 8. Commit i push tylko jeśli są inne zmiany niż update_time
-      - name: Commit i Push zmian w googleData.json (jeśli zaszły)
+      - name: Przełącz na branch data i commituj zmiany
         if: steps.compare_googledata.outcome == 'failure' && steps.compare_googledata.conclusion == 'success'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
+          git checkout data
           git add public/googleData.json
           git commit -m "Automatyczna aktualizacja danych: $(date -u '+%Y-%m-%d %H:%M UTC')" || echo "Brak zmian do commitowania"
           git push origin data
