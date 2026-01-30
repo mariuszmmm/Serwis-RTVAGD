@@ -14,10 +14,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout branch data
+      - name: Checkout kodu z main
         uses: actions/checkout@v4
         with:
-          ref: data
+          ref: main
           fetch-depth: 0
 
       - name: Setup Node.js
@@ -40,10 +40,11 @@ jobs:
           NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
         run: npm run update-sitemap
 
-      - name: Commit and push changes
+      - name: Przełącz na branch data i commituj zmiany
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout data
           git add public/imageParameters.json public/sitemap.xml
           git commit -m "🤖 Auto-update imageParameters.json and sitemap.xml [skip ci]" || echo "No changes to commit"
           git push origin data
