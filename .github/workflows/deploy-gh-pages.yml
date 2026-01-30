@@ -1,9 +1,6 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
   workflow_run:
     workflows: ["Update imageParameters.json and sitemap.xml"]
     types:
@@ -13,10 +10,10 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout branch data
+      - name: Checkout kodu z main
         uses: actions/checkout@v4
         with:
-          ref: data
+          ref: main
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
