@@ -40,11 +40,24 @@ jobs:
           NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
         run: npm run update-sitemap
 
-      - name: Przełącz na branch data i commituj zmiany
+      - name: Skopiuj pliki do /tmp
+        run: |
+          cp public/imageParameters.json /tmp/imageParameters.json
+          cp public/sitemap.xml /tmp/sitemap.xml
+
+      - name: Przełącz na branch data
+        run: |
+          git checkout data
+
+      - name: Skopiuj pliki z /tmp do public
+        run: |
+          cp /tmp/imageParameters.json public/imageParameters.json
+          cp /tmp/sitemap.xml public/sitemap.xml
+
+      - name: Commit i push plików automatycznych
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout data
           git add public/imageParameters.json public/sitemap.xml
           git commit -m "🤖 Auto-update imageParameters.json and sitemap.xml [skip ci]" || echo "No changes to commit"
           git push origin data
