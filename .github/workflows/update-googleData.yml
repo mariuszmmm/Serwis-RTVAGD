@@ -69,6 +69,8 @@ jobs:
             echo "changed=false" >> $GITHUB_OUTPUT
           fi
         continue-on-error: true
+        outputs:
+          changed: ${{ steps.compare_googledata.outputs.changed }}
 
       # 8. Commit i push tylko jeśli są inne zmiany niż update_time
       - name: Skopiuj googleData.json do /tmp
