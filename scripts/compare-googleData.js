@@ -23,6 +23,7 @@ function stripUpdateTime(obj) {
 }
 
 if (!newData || !repoData) {
+  console.log("Brak plików do porównania na branchu data.");
   process.exit(1); // nie porównuj, jeśli brakuje plików
 }
 
@@ -30,7 +31,9 @@ const a = JSON.stringify(stripUpdateTime(newData));
 const b = JSON.stringify(stripUpdateTime(repoData));
 
 if (a === b) {
+  console.log("Pliki różnią się tylko polem update_time na branchu data.");
   process.exit(2); // tylko update_time się różni
 } else {
+  console.log("Pliki różnią się istotnymi danymi (nie tylko update_time) na branchu data.");
   process.exit(0); // są inne zmiany
 }

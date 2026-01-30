@@ -19,9 +19,10 @@ jobs:
 
     steps:
       # 1. Checkout kodu
-      - name: Checkout repository
+      - name: Checkout branch data
         uses: actions/checkout@v3
         with:
+          ref: data
           fetch-depth: 0
 
       # 2. Ustaw Node.js
@@ -73,4 +74,4 @@ jobs:
 
           git add public/googleData.json
           git commit -m "Automatyczna aktualizacja danych: $(date -u '+%Y-%m-%d %H:%M UTC')"
-          git push
+          git push origin data

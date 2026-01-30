@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - data
 
 permissions:
   contents: write
@@ -13,9 +14,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout branch data
         uses: actions/checkout@v4
         with:
+          ref: data
           fetch-depth: 0
 
       - name: Setup Node.js
@@ -44,7 +46,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/imageParameters.json public/sitemap.xml
           git commit -m "🤖 Auto-update imageParameters.json and sitemap.xml [skip ci]" || echo "No changes to commit"
-          git push
+          git push origin data
 
   deploy:
     runs-on: ubuntu-latest

@@ -13,8 +13,10 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout branch data
         uses: actions/checkout@v4
+        with:
+          ref: data
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
