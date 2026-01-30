@@ -49,6 +49,9 @@ jobs:
         run: |
           git checkout data
 
+      - name: Utwórz katalog public
+        run: mkdir -p public
+
       - name: Skopiuj pliki z /tmp do public
         run: |
           cp /tmp/imageParameters.json public/imageParameters.json
