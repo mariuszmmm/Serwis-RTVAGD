@@ -3,8 +3,8 @@ name: Update googleData.json
 on:
   schedule:
     # - cron: "0 */10 * * *"   # co 10 min
-    - cron: "0 */1 * * *" # co 1 godzin
-    # - cron: "0 */12 * * *"   # co 12 godzin
+    # - cron: "0 */1 * * *" # co 1 godzin
+    - cron: "0 */12 * * *" # co 12 godzin
     # - cron: "0 0 * * *"      # co dziennie o północy
     # - cron: "0 0 1 * *" # raz w miesiącu (pierwszy dzień o północy UTC)
 
@@ -49,29 +49,28 @@ jobs:
           echo "Pliki w repo:"
           ls -la
           echo "Zawartość googleData.json:"
-          cat googleData.json || echo "googleData.json nie istnieje"
+          cat public/googleData.json || echo "public/googleData.json nie istnieje"
 
-      # 6. Commit i push zmian w googleData.json (jeśli zaszły)
-      - name: Commit i Push zmian w googleData.json
+      # 6. Pobierz wersję googleData.json z repozytorium do porównania
+      - name: Pobierz wersję googleData.json z repozytorium
+        run: |
+          cp public/googleData.json public/googleData.repo.json || touch public/googleData.repo.json
+          git checkout HEAD -- public/googleData.json || echo '{}' > public/googleData.repo.json
+
+      # 7. Porównaj pliki ignorując update_time
+      - name: Porównaj googleData.json bez update_time
+        id: compare_googledata
+        run: |
+          node scripts/compare-googleData.js
+        continue-on-error: true
+
+      # 8. Commit i push tylko jeśli są inne zmiany niż update_time
+      - name: Commit i Push zmian w googleData.json (jeśli zaszły)
+        if: steps.compare_googledata.outcome == 'failure' && steps.compare_googledata.conclusion == 'success'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          echo "=== 🧾 Obecna wersja googleData.json z repo ==="
-          git show HEAD:public/googleData.json || echo "Plik nie istnieje w repozytorium."
-
-          echo "=== 🆕 Nowa wersja googleData.json (po aktualizacji) ==="
-          cat public/googleData.json || echo "Plik nie został wygenerowany."
-
-          echo "=== ➕ Dodajemy googleData.json do stage'a ==="
           git add public/googleData.json
-
-          echo "=== 🔍 Różnice staged (git diff --cached) ==="
-          git diff --cached || echo "Brak różnic."
-
-          if git diff --cached --quiet; then
-            echo "Brak zmian w googleData.json – nic do commitowania."
-          else
-            git commit -m "Automatyczna aktualizacja danych: $(date -u '+%Y-%m-%d %H:%M UTC')"
-            git push
-          fi
+          git commit -m "Automatyczna aktualizacja danych: $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push
