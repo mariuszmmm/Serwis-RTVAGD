@@ -67,32 +67,32 @@ jobs:
 
       # 8. Commit i push tylko jeśli są inne zmiany niż update_time
       - name: Skopiuj googleData.json do /tmp
-        if: steps.compare_googledata.outcome == 'failure' && steps.compare_googledata.conclusion == 'success'
+        if: steps.compare_googledata.outcome == 'failure'
         run: |
           cp public/googleData.json /tmp/googleData.json
 
       - name: Resetuj package-lock.json
-        if: steps.compare_googledata.outcome == 'failure' && steps.compare_googledata.conclusion == 'success'
+        if: steps.compare_googledata.outcome == 'failure'
         run: |
           git restore package-lock.json
 
       - name: Przełącz na branch data
-        if: steps.compare_googledata.outcome == 'failure' && steps.compare_googledata.conclusion == 'success'
+        if: steps.compare_googledata.outcome == 'failure'
         run: |
           git checkout data
 
       - name: Utwórz katalog public
-        if: steps.compare_googledata.outcome == 'failure' && steps.compare_googledata.conclusion == 'success'
+        if: steps.compare_googledata.outcome == 'failure'
         run: |
           mkdir -p public
 
       - name: Skopiuj googleData.json z /tmp do public
-        if: steps.compare_googledata.outcome == 'failure' && steps.compare_googledata.conclusion == 'success'
+        if: steps.compare_googledata.outcome == 'failure'
         run: |
           cp /tmp/googleData.json public/googleData.json
 
       - name: Commit i push googleData.json
-        if: steps.compare_googledata.outcome == 'failure' && steps.compare_googledata.conclusion == 'success'
+        if: steps.compare_googledata.outcome == 'failure'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
