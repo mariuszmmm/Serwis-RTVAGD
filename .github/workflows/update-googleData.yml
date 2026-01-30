@@ -66,6 +66,11 @@ jobs:
         continue-on-error: true
 
       # 8. Commit i push tylko jeśli są inne zmiany niż update_time
+      - name: Resetuj package-lock.json
+        if: steps.compare_googledata.outcome == 'failure' && steps.compare_googledata.conclusion == 'success'
+        run: |
+          git restore package-lock.json
+
       - name: Przełącz na branch data i commituj zmiany
         if: steps.compare_googledata.outcome == 'failure' && steps.compare_googledata.conclusion == 'success'
         run: |
