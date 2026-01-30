@@ -73,5 +73,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add public/googleData.json
-          git commit -m "Automatyczna aktualizacja danych: $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git commit -m "Automatyczna aktualizacja danych: $(date -u '+%Y-%m-%d %H:%M UTC')" || echo "Brak zmian do commitowania"
           git push origin data
