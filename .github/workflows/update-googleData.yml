@@ -31,9 +31,9 @@ jobs:
         with:
           node-version: "24"
 
-      # 3. Instalacja zależności
-      - name: Instaluj zależności (npm install)
-        run: npm install
+      # # 3. Instalacja zależności
+      # - name: Instaluj zależności (npm install)
+      #   run: npm install
 
       # 4. Przekazanie Google API Key jako zmiennej ENV
       - name: Ustaw zmienną NEXT_PUBLIC_GOOGLE_API_KEY
