@@ -5,6 +5,10 @@ on:
     branches:
       - main
       - data
+  workflow_run:
+    workflows: ["Update googleData.json"]
+    types:
+      - completed
 
 permissions:
   contents: write
