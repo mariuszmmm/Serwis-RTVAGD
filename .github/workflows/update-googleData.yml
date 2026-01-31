@@ -107,6 +107,11 @@ jobs:
         run: |
           git status
 
+      - name: Debug – git diff przed commitem
+        if: steps.compare_googledata.outputs.changed == 'true'
+        run: |
+          git diff public/googleData.json
+
       - name: Commit i push googleData.json
         if: steps.compare_googledata.outputs.changed == 'true'
         run: |
