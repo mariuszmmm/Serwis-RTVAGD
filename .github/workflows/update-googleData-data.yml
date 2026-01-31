@@ -2,7 +2,8 @@ name: Update googleData.json (data branch only)
 
 on:
   schedule:
-    - cron: "0 */12 * * *" # co 12 godzin
+    - cron: "*/5 * * * *" # co 5 minut
+  # - cron: "0 */12 * * *" # co 12 godzin
   workflow_dispatch:
 
 permissions:
