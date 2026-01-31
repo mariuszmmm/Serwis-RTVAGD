@@ -3,8 +3,8 @@ name: Update imageParameters.json and sitemap.xml
 on:
   push:
     branches:
-      - main
-      - data
+#      - main
+#      - data
 
 permissions:
   contents: write
