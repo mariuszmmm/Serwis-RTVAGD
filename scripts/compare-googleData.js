@@ -32,8 +32,8 @@ const b = JSON.stringify(stripUpdateTime(repoData));
 
 if (a === b) {
   console.log("Pliki różnią się tylko polem update_time na branchu data.");
-  process.exit(2); // tylko update_time się różni
+  process.exit(0); // tylko update_time się różni
 } else {
   console.log("Pliki różnią się istotnymi danymi (nie tylko update_time) na branchu data.");
-  process.exit(0); // są inne zmiany
+  process.exit(2); // są inne zmiany
 }
