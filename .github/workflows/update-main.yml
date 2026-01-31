@@ -49,6 +49,9 @@ jobs:
           cp public/imageParameters.json /tmp/imageParameters.json
           cp public/sitemap.xml /tmp/sitemap.xml
 
+      - name: Resetuj zmiany w public/
+        run: git restore public/
+
       - name: Przełącz na branch data
         run: |
           git checkout data
