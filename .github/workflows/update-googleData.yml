@@ -61,59 +61,53 @@ jobs:
       # 7. Porównaj pliki ignorując update_time
       - name: Porównaj googleData.json bez update_time
         id: compare_googledata
-        run: |
-          node scripts/compare-googleData.js
-          if [ $? -eq 2 ]; then
-            echo "changed=true" >> $GITHUB_OUTPUT
-          else
-            echo "changed=false" >> $GITHUB_OUTPUT
-          fi
+        run: node scripts/compare-googleData.js
         continue-on-error: true
 
       # 8. Commit i push tylko jeśli są inne zmiany niż update_time
       - name: Skopiuj googleData.json do /tmp
-        if: steps.compare_googledata.outputs.changed == 'true'
+        if: steps.compare_googledata.outcome == 'failure'
         run: |
           cp public/googleData.json /tmp/googleData.json
 
       - name: Resetuj package-lock.json
-        if: steps.compare_googledata.outputs.changed == 'true'
+        if: steps.compare_googledata.outcome == 'failure'
         run: |
           git restore package-lock.json
 
       - name: Przełącz na branch data
-        if: steps.compare_googledata.outputs.changed == 'true'
+        if: steps.compare_googledata.outcome == 'failure'
         run: |
           git checkout data
 
       - name: Utwórz katalog public
-        if: steps.compare_googledata.outputs.changed == 'true'
+        if: steps.compare_googledata.outcome == 'failure'
         run: |
           mkdir -p public
 
       - name: Skopiuj googleData.json z /tmp do public
-        if: steps.compare_googledata.outputs.changed == 'true'
+        if: steps.compare_googledata.outcome == 'failure'
         run: |
           cp /tmp/googleData.json public/googleData.json
 
       - name: Debug – pokaż googleData.json na branchu data
-        if: steps.compare_googledata.outputs.changed == 'true'
+        if: steps.compare_googledata.outcome == 'failure'
         run: |
           echo 'Zawartość public/googleData.json na branchu data:'
           cat public/googleData.json
 
       - name: Debug – git status przed commitem
-        if: steps.compare_googledata.outputs.changed == 'true'
+        if: steps.compare_googledata.outcome == 'failure'
         run: |
           git status
 
       - name: Debug – git diff przed commitem
-        if: steps.compare_googledata.outputs.changed == 'true'
+        if: steps.compare_googledata.outcome == 'failure'
         run: |
           git diff public/googleData.json
 
       - name: Commit i push googleData.json
-        if: steps.compare_googledata.outputs.changed == 'true'
+        if: steps.compare_googledata.outcome == 'failure'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
