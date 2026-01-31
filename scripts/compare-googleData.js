@@ -27,8 +27,28 @@ if (!newData || !repoData) {
   process.exit(1); // nie porównuj, jeśli brakuje plików
 }
 
-const a = JSON.stringify(stripUpdateTime(newData));
-const b = JSON.stringify(stripUpdateTime(repoData));
+function sortObject(obj) {
+  if (Array.isArray(obj)) {
+    return obj.map(sortObject);
+  } else if (obj && typeof obj === "object") {
+    return Object.keys(obj)
+      .sort()
+      .reduce((result, key) => {
+        result[key] = sortObject(obj[key]);
+        return result;
+      }, {});
+  }
+  return obj;
+}
+
+const strippedNew = stripUpdateTime(newData);
+const strippedRepo = stripUpdateTime(repoData);
+const a = JSON.stringify(sortObject(strippedNew));
+const b = JSON.stringify(sortObject(strippedRepo));
+
+console.log("Porównanie obiektów po usunięciu update_time i sortowaniu kluczy:");
+console.log("newData:", JSON.stringify(sortObject(strippedNew), null, 2));
+console.log("repoData:", JSON.stringify(sortObject(strippedRepo), null, 2));
 
 if (a === b) {
   console.log("Pliki różnią się tylko polem update_time na branchu data.");
