@@ -3,6 +3,7 @@ name: Update googleData.json (data branch only)
 on:
   schedule:
     - cron: "0 */12 * * *" # co 12 godzin
+  #  - cron: "*/5 * * * *" # co 5 minut
   workflow_dispatch:
 
 permissions:
@@ -22,9 +23,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "24"
-
-      - name: Instaluj zależności (npm ci)
-        run: npm ci
 
       - name: Ustaw zmienne środowiskowe
         run: |
