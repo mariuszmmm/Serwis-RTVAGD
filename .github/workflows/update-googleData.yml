@@ -31,9 +31,9 @@ jobs:
         with:
           node-version: "24"
 
-      # # 3. Instalacja zależności
-      # - name: Instaluj zależności (npm install)
-      #   run: npm install
+      # 3. Instalacja zależności
+      - name: Instaluj zależności (npm install)
+        run: npm install
 
       # 4. Przekazanie Google API Key jako zmiennej ENV
       - name: Ustaw zmienną NEXT_PUBLIC_GOOGLE_API_KEY
@@ -59,7 +59,12 @@ jobs:
         run: node scripts/compare-googleData.js /tmp/googleData.json /tmp/googleData.repo.json
         continue-on-error: true
 
-      # 8. Commit i push tylko jeśli są inne zmiany niż update_time
+      # 8. Przywróć package-lock.json przed przełączeniem na branch data
+      - name: Przywróć package-lock.json
+        if: steps.compare_googledata.outcome == 'failure'
+        run: |
+          git restore package-lock.json || true
+
       - name: Przełącz na branch data
         if: steps.compare_googledata.outcome == 'failure'
         run: |
