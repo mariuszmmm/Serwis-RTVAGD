@@ -1,8 +1,9 @@
 const fs = require("fs");
 const path = require("path");
 
-const newPath = path.join(__dirname, "../public/googleData.json");
-const repoPath = path.join(__dirname, "../public/googleData.repo.json");
+// Pozwól na podanie ścieżek do plików jako argumenty, domyślnie stare ścieżki
+const newPath = process.argv[2] || path.join(__dirname, "../public/googleData.json");
+const repoPath = process.argv[3] || path.join(__dirname, "../public/googleData.repo.json");
 
 function readJson(filePath) {
   if (!fs.existsSync(filePath)) return null;

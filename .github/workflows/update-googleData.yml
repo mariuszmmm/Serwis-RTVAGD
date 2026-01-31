@@ -41,40 +41,25 @@ jobs:
           echo "NEXT_PUBLIC_GOOGLE_API_KEY=${{ secrets.NEXT_PUBLIC_GOOGLE_API_KEY }}" >> $GITHUB_ENV
           echo "NEXT_PUBLIC_PLACE_ID=${{ secrets.NEXT_PUBLIC_PLACE_ID }}" >> $GITHUB_ENV
 
-      # 5. Uruchomienie skryptu Node.js (aktualizacja googleData.json)
-      - name: Uruchom update-googleData.js
-        run: npm run update-googleData
-
-      - name: Debug – sprawdź czy plik googleData.json istnieje
+      # 5. Uruchomienie skryptu Node.js (aktualizacja googleData.json do /tmp)
+      - name: Uruchom update-googleData.js (do /tmp)
         run: |
-          echo "Pliki w repo:"
-          ls -la
-          echo "Zawartość googleData.json:"
-          cat public/googleData.json || echo "public/googleData.json nie istnieje"
+          mkdir -p /tmp
+          node public/scripts/update_googleData.js /tmp/googleData.json
 
-      # 6. Pobierz wersję googleData.json z repozytorium do porównania
-      - name: Pobierz wersję googleData.json z repozytorium
+      # 6. Pobierz wersję googleData.json z brancha data do /tmp
+      - name: Pobierz googleData.json z brancha data
         run: |
-          cp public/googleData.json public/googleData.repo.json || touch public/googleData.repo.json
-          git checkout HEAD -- public/googleData.json || echo '{}' > public/googleData.repo.json
+          git fetch origin data
+          git show origin/data:public/googleData.json > /tmp/googleData.repo.json || echo '{}' > /tmp/googleData.repo.json
 
       # 7. Porównaj pliki ignorując update_time
       - name: Porównaj googleData.json bez update_time
         id: compare_googledata
-        run: node scripts/compare-googleData.js
+        run: node scripts/compare-googleData.js /tmp/googleData.json /tmp/googleData.repo.json
         continue-on-error: true
 
       # 8. Commit i push tylko jeśli są inne zmiany niż update_time
-      - name: Skopiuj googleData.json do /tmp
-        if: steps.compare_googledata.outcome == 'failure'
-        run: |
-          cp public/googleData.json /tmp/googleData.json
-
-      - name: Resetuj package-lock.json
-        if: steps.compare_googledata.outcome == 'failure'
-        run: |
-          git restore package-lock.json
-
       - name: Przełącz na branch data
         if: steps.compare_googledata.outcome == 'failure'
         run: |
