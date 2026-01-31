@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows:
       - "Update imageParameters.json and sitemap.xml"
-      - "Update googleData.json"
+      - "Publish data.json to GitHub Pages"
     types:
       - completed
 

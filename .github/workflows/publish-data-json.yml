@@ -1,0 +1,27 @@
+name: Publish data.json to GitHub Pages
+
+on:
+  push:
+    branches:
+      - data
+
+jobs:
+  publish-data-json:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch data
+        uses: actions/checkout@v4
+        with:
+          ref: data
+
+      - name: Prepare publish directory
+        run: |
+          mkdir -p ./publish
+          cp public/googleData.json ./publish/data.json
+
+      - name: Deploy data.json to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./publish
+          keep_files: true
