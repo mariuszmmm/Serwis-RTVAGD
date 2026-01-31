@@ -2,7 +2,9 @@ name: Deploy to GitHub Pages
 
 on:
   workflow_run:
-    workflows: ["Update imageParameters.json and sitemap.xml"]
+    workflows:
+      - "Update imageParameters.json and sitemap.xml"
+      - "Update googleData.json"
     types:
       - completed
 
