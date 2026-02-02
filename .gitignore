@@ -1,0 +1,11 @@
+# Ignoruj wszystko
+/*
+
+# Ale nie ignoruj katalogu public i jego trzech plików
+!public/
+!public/googleData.json
+!public/imageParameters.json
+!public/sitemap.xml
+
+# Nie ignoruj .gitignore
+!.gitignore
