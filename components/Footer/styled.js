@@ -80,11 +80,9 @@ export const EmailIcon = styled(Envelope)`
 `;
 export const PhoneIcon = styled(Phone)`
   ${styledIcon}
-
 `;
 export const FacebookIcon = styled(Facebook)`
   ${styledIcon}
-
 `;
 export const GoogleIcon = styled(Google)`
   ${styledIcon}
@@ -100,12 +98,12 @@ export const LocationIcon = styled(Location)`
 
 export const StyledLink = styled.a`
   grid-area: ${({ $area }) => $area};
-  display: flex;
+  display: ${({ $footer }) => ($footer ? "inline" : "flex")};
   align-items: center;
   justify-self: left;
   gap: clamp(5px, 5.5vw, 10px);
   padding: 5px;
-  color: ${({ theme }) => theme.color.white};
+  color: ${({ theme, $footer }) => ($footer ? theme.color.border : theme.color.white)};
   text-decoration: none;
   transition: color 0.2s ease;
 

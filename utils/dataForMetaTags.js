@@ -166,6 +166,11 @@ export const getDataForMetaTags = async (key) => {
       name: "Kontakt",
       url: "https://naprawaprzemysl.pl/kontakt/",
     },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Polityka prywatności",
+      url: "https://naprawaprzemysl.pl/polityka-prywatnosci/",
+    },
   ];
 
   const dataForMetaTags = {
@@ -466,6 +471,63 @@ export const getDataForMetaTags = async (key) => {
                 "@id": appUrls.opinie,
                 url: appUrls.opinie,
                 name: "Opinie",
+              },
+            },
+          ],
+        },
+      },
+    },
+    polityka_prywatnosci: {
+      metaTags: {
+        title: `Polityka prywatności | ${shortName}`,
+        canonical: appUrls.polityka_prywatnosci,
+        description:
+          "Informacje o przetwarzaniu danych osobowych, prawach użytkownika oraz plikach cookies na stronie serwisu RTV i AGD w Przemyślu.",
+        imageAlt: "Serwis RTV i AGD w Przemyślu",
+        imageTitle: "Serwis RTV i AGD w Przemyślu",
+        imageWidth: "931",
+        imageHeight: "497",
+        imageType: "image/webp",
+        image: imageUrls.serwis,
+        type: "article",
+        siteName: shortName,
+      },
+      schema: {
+        website,
+        webpage: {
+          "@type": "WebPage",
+          "@id": appUrls.polityka_prywatnosci + "#webpage",
+          url: appUrls.polityka_prywatnosci,
+          inLanguage: "pl-PL",
+          name: `Polityka prywatności | ${shortName}`,
+          isPartOf: { "@type": "WebSite", "@id": appUrls.home + "#website" },
+          datePublished: datePublished,
+          dateModified: dateModified,
+          description:
+            "Polityka prywatności serwisu RTV i AGD w Przemyślu – zasady przetwarzania danych osobowych i plików cookies.",
+        },
+        breadcrumbList: {
+          "@type": "BreadcrumbList",
+          "@id": appUrls.polityka_prywatnosci + "#breadcrumb",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              item: {
+                "@type": "WebPage",
+                "@id": appUrls.home,
+                url: appUrls.home,
+                name: shortName,
+              },
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              item: {
+                "@type": "WebPage",
+                "@id": appUrls.polityka_prywatnosci,
+                url: appUrls.polityka_prywatnosci,
+                name: "Polityka prywatności",
               },
             },
           ],
