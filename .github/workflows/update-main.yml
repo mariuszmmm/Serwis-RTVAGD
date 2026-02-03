@@ -72,5 +72,5 @@ jobs:
     needs: update-files
 
     steps:
-       - name: Trigger Netlify build
-         run: curl -X POST -d {} ${{ secrets.NETLIFY_BUILD_HOOK }}
+      - name: Trigger Netlify build
+        run: curl -X POST -d {} ${{ secrets.NETLIFY_BUILD_HOOK }}
