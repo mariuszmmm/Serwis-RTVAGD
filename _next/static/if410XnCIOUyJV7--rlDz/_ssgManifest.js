@@ -1,1 +1,0 @@
-self.__SSG_MANIFEST=new Set(["\u002F","\u002Fkontakt","\u002Fnaprawa-ekspresow","\u002Fnaprawa-pralek","\u002Fnaprawa-suszarek","\u002Fnaprawa-telewizorow","\u002Fnaprawa-zmywarek","\u002Fo-mnie","\u002Fopinie"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
