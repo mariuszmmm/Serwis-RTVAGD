@@ -58,9 +58,16 @@ jobs:
           NEXT_PUBLIC_CLOUDINARY_API_KEY: ${{ secrets.NEXT_PUBLIC_CLOUDINARY_API_KEY }}
           NEXT_PUBLIC_CLOUDINARY_API_SECRET: ${{ secrets.NEXT_PUBLIC_CLOUDINARY_API_SECRET }}
 
-      - name: Copy CNAME to build output
+      - name: Pobierz pliki z brancha data
         if: env.SHOULD_DEPLOY == 'true'
-        run: cp public/CNAME ./out/CNAME
+        run: git fetch origin data
+
+      - name: Skopiuj pliki do out
+        if: env.SHOULD_DEPLOY == 'true'
+        run: |
+          cp public/CNAME ./out/CNAME
+          git show origin/data:public/imageParameters.json > ./out/imageParameters.json || echo "imageParameters.json nie istnieje"
+          git show origin/data:public/sitemap.xml > ./out/sitemap.xml || echo "sitemap.xml nie istnieje"
 
       - name: Deploy to GitHub Pages
         if: env.SHOULD_DEPLOY == 'true'

@@ -1,0 +1,12 @@
+# llms.txt
+Site: https://naprawaprzemysl.pl
+Purpose: Serwis RTV i AGD w Przemyślu
+
+Permissions:
+  - search_index: allowed
+  - ai_training: disallowed
+  - ai_inference: disallowed
+
+Policies: https://naprawaprzemysl.pl/polityka-prywatnosci
+Contact: mailto:piotrek_serwis@wp.pl
+Last-Updated: 2026-02-03

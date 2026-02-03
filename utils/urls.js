@@ -1,36 +1,40 @@
-
 export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "";
 // export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://naprawaprzemysl.pl";
-
 
 export const cloudinaryImageUrls = {
   serwis: "https://res.cloudinary.com/difc0i71u/image/upload/v1731168333/Serwis/serwis.webp",
   serwis_auto: "https://res.cloudinary.com/difc0i71u/image/upload/f_auto,q_auto/v1/Serwis/serwis",
-  telewizor: "https://res.cloudinary.com/difc0i71u/image/upload/v1734715051/Serwis/serwis-telewizorow-przemysl-naprawa-telewizora.png",
-  telewizor_auto: "https://res.cloudinary.com/difc0i71u/image/upload/f_auto,q_auto,w_300/v1/Serwis/serwis-telewizorow-przemysl-naprawa-telewizoras",
+  telewizor:
+    "https://res.cloudinary.com/difc0i71u/image/upload/v1734715051/Serwis/serwis-telewizorow-przemysl-naprawa-telewizora.png",
+  telewizor_auto:
+    "https://res.cloudinary.com/difc0i71u/image/upload/f_auto,q_auto,w_300/v1/Serwis/serwis-telewizorow-przemysl-naprawa-telewizoras",
 
   ekspres: "https://res.cloudinary.com/difc0i71u/image/upload/v1734715051/Serwis/naprawa-ekspresow-2",
 
-  ekspres_auto: "https://res.cloudinary.com/difc0i71u/image/upload/f_auto,q_auto/v1/Serwis/serwis-ekspresow-przemysl-naprawa-ekspresu",
-  ekspres_2: "https://res.cloudinary.com/difc0i71u/image/upload/v1734715051/Serwis/serwis-ekspresow-przemysl-profesjonalna-naprawa-ekspresu.png",
-  ekspres_2_auto: "https://res.cloudinary.com/difc0i71u/image/upload/f_auto,q_auto/v1/Serwis/serwis-ekspresow-przemysl-profesjonalna-naprawa-ekspresu",
+  ekspres_auto:
+    "https://res.cloudinary.com/difc0i71u/image/upload/f_auto,q_auto/v1/Serwis/serwis-ekspresow-przemysl-naprawa-ekspresu",
+  ekspres_2:
+    "https://res.cloudinary.com/difc0i71u/image/upload/v1734715051/Serwis/serwis-ekspresow-przemysl-profesjonalna-naprawa-ekspresu.png",
+  ekspres_2_auto:
+    "https://res.cloudinary.com/difc0i71u/image/upload/f_auto,q_auto/v1/Serwis/serwis-ekspresow-przemysl-profesjonalna-naprawa-ekspresu",
   // zmywarka: "https://res.cloudinary.com/difc0i71u/image/upload/v1734715051/Serwis/serwis-zmywarek-przemysl-naprawa-zmywarki.webp",
 
   zmywarka: "https://res.cloudinary.com/difc0i71u/image/upload/v1755867034/Serwis/naprawa-zmywarek.png",
   zmywarka_520: "https://res.cloudinary.com/difc0i71u/image/upload/w_520/v1754622765/Serwis/naprawa-zmywarek.webp",
   zmywarka_284: "https://res.cloudinary.com/difc0i71u/image/upload/w_284/v1754622765/Serwis/naprawa-zmywarek.webp",
 
-
-
-
-  zmywarka_auto: "https://res.cloudinary.com/difc0i71u/image/upload/f_auto,q_auto,w_300/v1/Serwis/serwis-zmywarek-przemysl-naprawa-zmywarki",
+  zmywarka_auto:
+    "https://res.cloudinary.com/difc0i71u/image/upload/f_auto,q_auto,w_300/v1/Serwis/serwis-zmywarek-przemysl-naprawa-zmywarki",
 
   // pralka: "https://res.cloudinary.com/difc0i71u/image/upload/f_auto/q_auto/v1754622763/Serwis/naprawa-pralek-2.webp",
   pralka: "https://res.cloudinary.com/difc0i71u/image/upload/v1/Serwis/naprawa-pralek-2.webp",
 
-  pralka_auto: "https://res.cloudinary.com/difc0i71u/image/upload/f_auto,q_auto/v1/Serwis/serwis-pralek-przemysl-naprawa-pralki",
-  suszarka: "https://res.cloudinary.com/difc0i71u/image/upload/v1734715051/Serwis/serwis-suszarek-przemysl-naprawa-suszarki.png",
-  suszarka_auto: "https://res.cloudinary.com/difc0i71u/image/upload/f_auto,q_auto/v1/Serwis/serwis-suszarek-przemysl-naprawa-suszarki",
+  pralka_auto:
+    "https://res.cloudinary.com/difc0i71u/image/upload/f_auto,q_auto/v1/Serwis/serwis-pralek-przemysl-naprawa-pralki",
+  suszarka:
+    "https://res.cloudinary.com/difc0i71u/image/upload/v1734715051/Serwis/serwis-suszarek-przemysl-naprawa-suszarki.png",
+  suszarka_auto:
+    "https://res.cloudinary.com/difc0i71u/image/upload/f_auto,q_auto/v1/Serwis/serwis-suszarek-przemysl-naprawa-suszarki",
   logoGoogle: "https://res.cloudinary.com/difc0i71u/image/upload/v1731168332/Serwis/logoGoogle.png",
   logoGoogle_auto: "https://res.cloudinary.com/difc0i71u/image/upload/f_auto,q_auto/v1/Serwis/logoGoogle",
   logo: "https://res.cloudinary.com/difc0i71u/image/upload/v1733813310/Serwis/logo.png",
@@ -38,10 +42,6 @@ export const cloudinaryImageUrls = {
   mapa: "https://res.cloudinary.com/difc0i71u/image/upload/v1732595296/Serwis/mapa.png",
   mapa_auto: "https://res.cloudinary.com/difc0i71u/image/upload/f_auto,q_auto/v1/Serwis/mapa",
 };
-
-
-
-
 
 export const imageUrls = {
   // serwis: `https://res.cloudinary.com/difc0i71u/image/upload/v1755230400/Serwis/serwis-rtv-agd.webp`,
@@ -56,7 +56,6 @@ export const imageUrls = {
   suszarka: `${baseUrl}/images/naprawa-suszarek-2.webp`,
 
   // zmywarka: `https://res.cloudinary.com/difc0i71u/image/upload/v1755748024/Serwis/naprawa-zmywarek.png`,
-
 
   zmywarka_520: `${baseUrl}/images/naprawa-zmywarek-520.webp`,
   zmywarka_284: `${baseUrl}/images/naprawa-zmywarek-284.webp`,
@@ -88,8 +87,6 @@ export const imageUrls = {
   _ekspres_2: `${baseUrl}/images/ekspres_2.webp`,
   _ekspres_2_284: `${baseUrl}/images/ekspres_2-284.webp`,
 
-
-
   serwis_1: baseUrl + "/images/serwis.jpg",
   telewizor_300: baseUrl + "/images/serwis-telewizorow-przemysl-naprawa-telewizora_300.webp",
   ekspres_300: baseUrl + "/images/serwis-ekspresow-przemysl-naprawa-ekspresu_300.webp",
@@ -112,6 +109,7 @@ export const appUrls = {
   kontakt: baseUrl + "/kontakt/",
   o_mnie: baseUrl + "/o-mnie/",
   opinie: baseUrl + "/opinie/",
+  polityka_prywatnosci: baseUrl + "/polityka-prywatnosci/",
   naprawa_pralek: baseUrl + "/naprawa-pralek/",
   naprawa_suszarek: baseUrl + "/naprawa-suszarek/",
   naprawa_zmywarek: baseUrl + "/naprawa-zmywarek/",
