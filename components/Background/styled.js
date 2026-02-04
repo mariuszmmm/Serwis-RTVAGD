@@ -31,10 +31,6 @@ export const Circle = styled.div`
   left: ${({ $left }) => $left};
   width: 100vw;
   height: 100vw;
-  background: radial-gradient(
-    circle,
-    #eb5c20 0%,
-    rgba(235, 92, 32, 0) 60%
-  );
+  background: radial-gradient(circle, #eb5c20 0%, rgba(235, 92, 32, 0) 60%);
   filter: blur(30px);
 `;

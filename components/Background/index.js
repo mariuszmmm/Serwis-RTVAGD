@@ -8,8 +8,7 @@ const Background = ({ dataForMetaTags, imageParameters }) => {
 
   return (
     <BackgroundWrapper>
-      {
-        !isServicesPath && imageParameters && dataForMetaTags &&
+      {!isServicesPath && imageParameters && dataForMetaTags && (
         <BackgroundImage
           src={imageParameters.serwis_rtv_agd?.imageUrl}
           srcSet={imageParameters.serwis_rtv_agd?.srcSet}
@@ -17,9 +16,9 @@ const Background = ({ dataForMetaTags, imageParameters }) => {
           height={dataForMetaTags.metaTags?.imageHeight}
           title={dataForMetaTags.metaTags?.imageTitle}
           alt={dataForMetaTags.metaTags?.imageAlt}
-          loading="eager"
+          loading='eager'
         />
-      }
+      )}
       <Rotating>
         <Circle $top={"0%"} $left={"40%"}></Circle>
         <Circle $top={"-70%"} $left={"10%"}></Circle>
