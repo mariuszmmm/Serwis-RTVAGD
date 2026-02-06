@@ -15,7 +15,7 @@ const PrivacyPolicy = ({ rating, ratingsTotal, dataForMetaTags }) => {
 
   return (
     <>
-      {/* <MetaTags path={path} page={dataForMetaTags} rating={rating} ratingsTotal={ratingsTotal} /> */}
+      <MetaTags path={path} page={dataForMetaTags} rating={rating} ratingsTotal={ratingsTotal} />
 
       <Container>
         <Section>
