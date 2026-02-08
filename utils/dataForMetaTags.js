@@ -537,7 +537,7 @@ export const getDataForMetaTags = async (key) => {
     naprawa_pralek: {
       metaTags: {
         title: `Naprawa pralek Przemyśl ☎️ ${formattedPhoneNumber} | Serwis AGD`,
-        ogTitle: `Naprawa pralek Przemyśl ☎️ ${formattedPhoneNumber} | Serwis AGD,
+        ogTitle: `Naprawa pralek Przemyśl ☎️ ${formattedPhoneNumber} | Serwis AGD`,
         twitterTitle: `Naprawa pralek Przemyśl ☎️ ${formattedPhoneNumber} | Serwis AGD`,
         description: `Naprawa pralek w Przemyślu. ☝ Zepsuta pralka ❓ Szybka i skuteczna naprawa ❗ Z gwarancją i w konkurencyjnej cenie. ⚡ Zadzwoń! ☎️ ${formattedPhoneNumber}`,
         ogDescription: `Naprawa pralek w Przemyślu. ☝ Zepsuta pralka ❓ Szybka i skuteczna naprawa ❗ Z gwarancją i w konkurencyjnej cenie. ⚡ Zadzwoń! ☎️ ${formattedPhoneNumber}`,
