@@ -38,7 +38,7 @@ export const getDataForMetaTags = async (key) => {
     "@type": "WebSite",
     "@id": appUrls.home + "#website",
     url: appUrls.home,
-    name: name,
+    name: serwis.subName,
     inLanguage: "pl-PL",
     description:
       "Profesjonalny serwis RTV i AGD w Przemyślu. Szybka i skuteczna naprawa pralek, suszarek, zmywarek, telewizorów i ekspresów do kawy.",
@@ -48,7 +48,7 @@ export const getDataForMetaTags = async (key) => {
   const localBusiness = {
     "@type": "LocalBusiness",
     "@id": appUrls.home + "#localbusiness", // dodane 17.05.2025
-    name: name, // zgodny z CEIDG
+    name: serwis.ceidgName, // zgodny z CEIDG
     image: imageUrls.serwis,
     url: appUrls.home,
     logo: imageUrls.logo,
@@ -182,9 +182,9 @@ export const getDataForMetaTags = async (key) => {
         //   title: `${shortName} ✔️ Naprawa Przemyśl ☎️ ${formattedPhoneNumber} | ${serwis.name}`,
         //    ogTitle: `${shortName} ✔️ Naprawa Przemyśl ☎️ ${formattedPhoneNumber} | ${serwis.name}`,
         //   twitterTitle: `${shortName} ✔️ 🔧 Naprawa Przemyśl ☎️ ${formattedPhoneNumber} | ${serwis.name}`,
-        title: `Serwis RTV i AGD ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
-        ogTitle: `Serwis RTV i AGD ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
-        twitterTitle: `Serwis RTV i AGD ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
+        title: `Serwis RTV i AGD ✔️ Naprawa Przemyśl ☎️ ${formattedPhoneNumber}`,
+        ogTitle: `Serwis RTV i AGD ✔️ Naprawa Przemyśl ☎️ ${formattedPhoneNumber}`,
+        twitterTitle: `Serwis RTV i AGD ✔️ Naprawa Przemyśl ☎️ ${formattedPhoneNumber}`,
         description: `Profesjonalny Serwis RTV i AGD w Przemyślu. Naprawa: ✔️ Suszarek do prania ✔️ Pralek ✔️ Zmywarek ✔️ Telewizorów ✔️ Ekspresów do kawy ⚡ Zadzwoń! ☎️ ${shortPhoneNumber}`,
         ogDescription: `Profesjonalny Serwis RTV i AGD w Przemyślu. Naprawa: ✔️ Suszarek do prania ✔️ Pralek ✔️ Zmywarek ✔️ Telewizorów ✔️ Ekspresów do kawy ⚡ Zadzwoń! ☎️ ${shortPhoneNumber}`,
         twitterDescription: `Profesjonalny Serwis RTV i AGD w Przemyślu. Naprawa: ✔️ Suszarek do prania ✔️ Pralek ✔️ Zmywarek ✔️ Telewizorów ✔️ Ekspresów do kawy ⚡ Zadzwoń! ☎️ ${shortPhoneNumber}`,
@@ -213,7 +213,7 @@ export const getDataForMetaTags = async (key) => {
         place: {
           "@type": "Place",
           geo: geo,
-          name: serwis.name,
+          name: serwis.subName,
         },
         website,
         webpage: {
@@ -221,7 +221,7 @@ export const getDataForMetaTags = async (key) => {
           "@id": appUrls.home + "#webpage",
           url: appUrls.home,
           inLanguage: "pl-PL",
-          name: `Serwis RTV i AGD ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
+          name: `Serwis RTV i AGD ✔️ Naprawa Przemyśl ☎️ ${formattedPhoneNumber}`,
           isPartOf: { "@type": "WebSite", "@id": appUrls.home + "#website" },
           primaryImageOfPage: { "@type": "ImageObject", "@id": appUrls.home + "#primaryimage" },
           // "image": { "@type": "ImageObject", "@id": appUrls.home + "#primaryimage" },
@@ -240,7 +240,7 @@ export const getDataForMetaTags = async (key) => {
           contentUrl: imageUrls.serwis,
           width: 931,
           height: 497,
-          name: `Serwis RTV i AGD ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
+          name: `Serwis RTV i AGD ✔️ Naprawa Przemyśl ☎️ ${formattedPhoneNumber}`,
           description: "Doświadczony technik serwisu RTV i AGD w trakcie naprawy urządzenia w Przemyślu.",
           caption: "Twój zaufany serwis RTV i AGD w Przemyślu – szybkie i skuteczne naprawy.",
           representativeOfPage: true,
@@ -536,9 +536,9 @@ export const getDataForMetaTags = async (key) => {
     },
     naprawa_pralek: {
       metaTags: {
-        title: `Naprawa pralek Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
-        ogTitle: `Naprawa pralek Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
-        twitterTitle: `Naprawa pralek Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
+        title: `Naprawa Pralek Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
+        ogTitle: `Naprawa Pralek Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
+        twitterTitle: `Naprawa Pralek Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
         description: `Naprawa pralek w Przemyślu. ☝ Zepsuta pralka ❓ Szybka i skuteczna naprawa ❗ Z gwarancją i w konkurencyjnej cenie. ⚡ Zadzwoń! ☎️ ${formattedPhoneNumber}`,
         ogDescription: `Naprawa pralek w Przemyślu. ☝ Zepsuta pralka ❓ Szybka i skuteczna naprawa ❗ Z gwarancją i w konkurencyjnej cenie. ⚡ Zadzwoń! ☎️ ${formattedPhoneNumber}`,
         twitterDescription: `Naprawa pralek w Przemyślu. ☝ Zepsuta pralka ❓ Szybka i skuteczna naprawa ❗ Z gwarancją i w konkurencyjnej cenie. ⚡ Zadzwoń! ☎️ ${formattedPhoneNumber}`,
@@ -640,7 +640,7 @@ export const getDataForMetaTags = async (key) => {
         place: {
           "@type": "Place",
           geo: geo,
-          name: serwis.name,
+          name: serwis.subName,
         },
         imageObject: {
           "@type": "ImageObject",
@@ -650,7 +650,7 @@ export const getDataForMetaTags = async (key) => {
           contentUrl: imageUrls.pralka,
           width: 700,
           height: 700,
-          name: `Naprawa pralek Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
+          name: `Naprawa Pralek Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
           description: "Profesjonalna naprawa pralek w Przemyślu, szybka diagnoza i usunięcie usterki.",
           caption: "Serwisant naprawia pralkę – szybko i skutecznie.",
           representativeOfPage: true,
@@ -661,7 +661,7 @@ export const getDataForMetaTags = async (key) => {
           "@id": appUrls.naprawa_pralek + "#webpage",
           url: appUrls.naprawa_pralek,
           inLanguage: "pl-PL",
-          name: `Naprawa pralek Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
+          name: `Naprawa Pralek Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
           isPartOf: { "@type": "WebSite", "@id": appUrls.home + "#website" },
           primaryImageOfPage: { "@type": "ImageObject", "@id": appUrls.naprawa_pralek + "#primaryimage" },
           // "image": { "@type": "ImageObject", "@id": appUrls.naprawa_pralek + "#primaryimage" },
@@ -703,9 +703,9 @@ export const getDataForMetaTags = async (key) => {
     },
     naprawa_suszarek: {
       metaTags: {
-        title: `Naprawa suszarek Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
-        ogTitle: `Naprawa suszarek Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
-        twitterTitle: `Naprawa suszarek Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
+        title: `Naprawa Suszarek Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
+        ogTitle: `Naprawa Suszarek Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
+        twitterTitle: `Naprawa Suszarek Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
         description: `Naprawa suszarek do prania w Przemyślu. ☝ Potrzebujesz naprawić suszarkę ❓ Profesjonalny serwis suszarek do ubrań ❗ Z dojazdem. ⚡ Zadzwoń! ☎️ ${formattedPhoneNumber}`,
         ogDescription: `Naprawa suszarek do prania w Przemyślu. ☝ Potrzebujesz naprawić suszarkę ❓ Profesjonalny serwis suszarek do ubrań ❗ Z dojazdem. ⚡ Zadzwoń! ☎️ ${formattedPhoneNumber}`,
         twitterDescription: `Naprawa suszarek do prania w Przemyślu. ☝ Potrzebujesz naprawić suszarkę ❓ Profesjonalny serwis suszarek do ubrań ❗ Z dojazdem. ⚡ Zadzwoń! ☎️ ${formattedPhoneNumber}`,
@@ -761,7 +761,7 @@ export const getDataForMetaTags = async (key) => {
         place: {
           "@type": "Place",
           geo: geo,
-          name: serwis.name,
+          name: serwis.subName,
         },
         faqPage: {
           "@type": "FAQPage",
@@ -818,7 +818,7 @@ export const getDataForMetaTags = async (key) => {
           contentUrl: imageUrls.suszarka,
           width: 700,
           height: 700,
-          name: `Naprawa suszarek Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
+          name: `Naprawa Suszarek Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
           description: "Profesjonalna naprawa suszarek kondensacyjnych i z pompą ciepła w Przemyślu.",
           caption: "Serwisant szybko naprawi Twoją suszarkę do prania.",
           representativeOfPage: true,
@@ -829,7 +829,7 @@ export const getDataForMetaTags = async (key) => {
           "@id": appUrls.naprawa_suszarek + "#webpage",
           url: appUrls.naprawa_suszarek,
           inLanguage: "pl-PL",
-          name: `Naprawa suszarek Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
+          name: `Naprawa Suszarek Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
           isPartOf: { "@type": "WebSite", "@id": appUrls.home + "#website" },
           primaryImageOfPage: { "@type": "ImageObject", "@id": appUrls.naprawa_suszarek + "#primaryimage" },
           // "image": { "@type": "ImageObject", "@id": appUrls.naprawa_suszarek + "#primaryimage" },
@@ -871,9 +871,9 @@ export const getDataForMetaTags = async (key) => {
     },
     naprawa_zmywarek: {
       metaTags: {
-        title: `Naprawa zmywarek Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
-        ogTitle: `Naprawa zmywarek Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
-        twitterTitle: `Naprawa zmywarek Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
+        title: `Naprawa Zmywarek Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
+        ogTitle: `Naprawa Zmywarek Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
+        twitterTitle: `Naprawa Zmywarek Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
         description: `Naprawa zmywarek w Przemyślu. ☝ Awaria zmywarki ❓ Skuteczne usunięcie usterek ❗ Fachowa pomoc z gwarancją i dojazdem. ⚡ Zadzwoń! ☎️ ${formattedPhoneNumber}`,
         ogDescription: `Naprawa zmywarek w Przemyślu. ☝ Awaria zmywarki ❓ Skuteczne usunięcie usterek ❗ Fachowa pomoc z gwarancją i dojazdem. ⚡ Zadzwoń! ☎️ ${formattedPhoneNumber}`,
         twitterDescription: `Naprawa zmywarek w Przemyślu. ☝ Awaria zmywarki ❓ Skuteczne usunięcie usterek ❗ Fachowa pomoc z gwarancją i dojazdem. ⚡ Zadzwoń! ☎️ ${formattedPhoneNumber}`,
@@ -975,7 +975,7 @@ export const getDataForMetaTags = async (key) => {
         place: {
           "@type": "Place",
           geo: geo,
-          name: serwis.name,
+          name: serwis.subName,
         },
         imageObject: {
           "@type": "ImageObject",
@@ -985,7 +985,7 @@ export const getDataForMetaTags = async (key) => {
           contentUrl: imageParameters.naprawa_zmywarek.imageUrl,
           width: "520",
           height: "520",
-          name: `Naprawa zmywarek Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
+          name: `Naprawa Zmywarek Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
           description: "Profesjonalna naprawa zmywarek wolnostojących i do zabudowy w Przemyślu.",
           caption: "Serwisant szybko i skutecznie naprawi Twoją zmywarkę.",
           representativeOfPage: true,
@@ -996,7 +996,7 @@ export const getDataForMetaTags = async (key) => {
           "@id": appUrls.naprawa_zmywarek + "#webpage",
           url: appUrls.naprawa_zmywarek,
           inLanguage: "pl-PL",
-          name: `Naprawa zmywarek Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
+          name: `Naprawa Zmywarek Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
           isPartOf: { "@type": "WebSite", "@id": appUrls.home + "#website" },
           primaryImageOfPage: { "@type": "ImageObject", "@id": appUrls.naprawa_zmywarek + "#primaryimage" },
           // "image": { "@type": "ImageObject", "@id": appUrls.naprawa_zmywarek + "#primaryimage" },
@@ -1038,9 +1038,9 @@ export const getDataForMetaTags = async (key) => {
     },
     naprawa_ekspresow: {
       metaTags: {
-        title: `Naprawa Ekspresów do Kawy Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
-        ogTitle: `Naprawa Ekspresów do Kawy Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
-        twitterTitle: `Naprawa Ekspresów do Kawy Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
+        title: `Naprawa Ekspresów do Kawy Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
+        ogTitle: `Naprawa Ekspresów do Kawy Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
+        twitterTitle: `Naprawa Ekspresów do Kawy Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
         description: `Naprawa ekspresów do kawy w Przemyślu. ☝ Przywróć doskonały smak kawy ☕ Serwis ekspresów ciśnieniowych i automatycznych. ⚡ Zadzwoń! ☎️ ${formattedPhoneNumber}`,
         ogDescription: `Naprawa ekspresów do kawy w Przemyślu. ☝ Przywróć doskonały smak kawy ☕ Serwis ekspresów ciśnieniowych i automatycznych. ⚡ Zadzwoń! ☎️ ${formattedPhoneNumber}`,
         twitterDescription: `Naprawa ekspresów do kawy w Przemyślu. ☝ Przywróć doskonały smak kawy ☕ Serwis ekspresów ciśnieniowych i automatycznych. ⚡ Zadzwoń! ☎️ ${formattedPhoneNumber}`,
@@ -1134,7 +1134,7 @@ export const getDataForMetaTags = async (key) => {
         place: {
           "@type": "Place",
           geo: geo,
-          name: serwis.name,
+          name: serwis.subName,
         },
         imageObject: {
           "@type": "ImageObject",
@@ -1144,7 +1144,7 @@ export const getDataForMetaTags = async (key) => {
           contentUrl: imageUrls.ekspres,
           width: 700,
           height: 700,
-          name: `Naprawa Ekspresów do Kawy Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
+          name: `Naprawa Ekspresów do Kawy Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
           description: "Profesjonalna naprawa ekspresów ciśnieniowych i automatycznych w Przemyślu.",
           caption: "Serwisant szybko naprawi Twój ekspres do kawy.",
           representativeOfPage: true,
@@ -1155,7 +1155,7 @@ export const getDataForMetaTags = async (key) => {
           "@id": appUrls.naprawa_ekspresow + "#webpage",
           url: appUrls.naprawa_ekspresow,
           inLanguage: "pl-PL",
-          name: `Naprawa Ekspresów do Kawy Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
+          name: `Naprawa Ekspresów do Kawy Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
           isPartOf: { "@type": "WebSite", "@id": appUrls.home + "#website" },
           primaryImageOfPage: { "@type": "ImageObject", "@id": appUrls.naprawa_ekspresow + "#primaryimage" },
           // "image": { "@type": "ImageObject", "@id": appUrls.naprawa_ekspresow + "#primaryimage" },
@@ -1197,9 +1197,9 @@ export const getDataForMetaTags = async (key) => {
     },
     naprawa_telewizorow: {
       metaTags: {
-        title: `Naprawa telewizorów Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
-        ogTitle: `Naprawa telewizorów Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
-        twitterTitle: `Naprawa telewizorów Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
+        title: `Naprawa Telewizorów Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
+        ogTitle: `Naprawa Telewizorów Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
+        twitterTitle: `Naprawa Telewizorów Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
         description: `Naprawa telewizorów LED, LCD, OLED w Przemyślu. ☝ Twój telewizor nie działa ❓ Profesjonalny serwis RTV ❗ Z gwarancją i dojazdem. ⚡ Zadzwoń! ☎️ ${formattedPhoneNumber}`,
         ogDescription: `Naprawa telewizorów LED, LCD, OLED w Przemyślu. ☝ Twój telewizor nie działa ❓ Profesjonalny serwis RTV ❗ Z gwarancją i dojazdem. ⚡ Zadzwoń! ☎️ ${formattedPhoneNumber}`,
         twitterDescription: `Naprawa telewizorów LED, LCD, OLED w Przemyślu. ☝ Twój telewizor nie działa ❓ Profesjonalny serwis RTV ❗ Z gwarancją i dojazdem. ⚡ Zadzwoń! ☎️ ${formattedPhoneNumber}`,
@@ -1293,7 +1293,7 @@ export const getDataForMetaTags = async (key) => {
         place: {
           "@type": "Place",
           geo: geo,
-          name: serwis.name,
+          name: serwis.subName,
         },
         imageObject: {
           "@type": "ImageObject",
@@ -1303,7 +1303,7 @@ export const getDataForMetaTags = async (key) => {
           contentUrl: imageUrls.telewizor,
           width: 700,
           height: 700,
-          name: `Naprawa telewizorów Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
+          name: `Naprawa Telewizorów Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
           description: "Profesjonalna naprawa telewizorów LCD, LED, OLED i Smart TV w Przemyślu.",
           caption: "Serwisant przywróci Twój telewizor do życia.",
           representativeOfPage: true,
@@ -1314,7 +1314,7 @@ export const getDataForMetaTags = async (key) => {
           "@id": appUrls.naprawa_telewizorow + "#webpage",
           url: appUrls.naprawa_telewizorow,
           inLanguage: "pl-PL",
-          name: `Naprawa telewizorów Przemyśl ☎️ ${formattedPhoneNumber} | Naprawa Przemyśl`,
+          name: `Naprawa Telewizorów Przemyśl ☎️ ${formattedPhoneNumber} | Serwis`,
           isPartOf: { "@type": "WebSite", "@id": appUrls.home + "#website" },
           primaryImageOfPage: { "@type": "ImageObject", "@id": appUrls.naprawa_telewizorow + "#primaryimage" },
           // "image": { "@type": "ImageObject", "@id": appUrls.naprawa_telewizorow + "#primaryimage" },
