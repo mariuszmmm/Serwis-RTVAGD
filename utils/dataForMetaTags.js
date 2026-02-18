@@ -1,5 +1,4 @@
 // import { imageParameters } from "./getImageParameters";
-import { getImageParameters } from "./getImageParameters";
 import { serwis } from "./serwis";
 import { appUrls, imageUrls } from "./urls";
 import imageParameters from "../public/imageParameters.json" with { type: "json" };
@@ -12,7 +11,8 @@ export const getDataForMetaTags = async (key) => {
   const datePublished = new Date("2024-07-03").toISOString();
   const date = new Date().toISOString();
   const dateModified = new Date(date).toISOString();
-  const shortName = serwis.shortName;
+  // const shortName = serwis.shortName;
+  const shortName = "Naprawa Przemyśl";
   const name = serwis.name;
   const shortPhoneNumber = serwis.phone.short;
   const formattedPhoneNumber = serwis.phone.formatted;
@@ -48,7 +48,7 @@ export const getDataForMetaTags = async (key) => {
   const localBusiness = {
     "@type": "LocalBusiness",
     "@id": appUrls.home + "#localbusiness", // dodane 17.05.2025
-    name: serwis.ceidgName, // zgodny z CEIDG
+    name: serwis.subName, // zgodny z CEIDG
     image: imageUrls.serwis,
     url: appUrls.home,
     logo: imageUrls.logo,
