@@ -1,0 +1,56 @@
+{
+  "reviews": [
+    {
+      "author_name": "Marcin Amarowicz",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocJBy-S5TJKBbH9pvwTFX4ijow7ylTZxCIhZmBbqzatAYkvsoQ=s128-c0x00000000-cc-rp-mo",
+      "text": "Szukałem kilku firm w Przemyślu, które zajmują się naprawą szuszarek bębnowych. Cieszę się, że natrafiłem na firmę Pana Piotra. Diagnoza i naprawa była bardzo szybka i trafna, a co najważniejsze Pan Piotr przyjechał w godzinach, które mi odpowiadały (po pracy). Pełen profesjonalizm. Jeśli coś kiedyś mi się zepsuje to już wiem gdzie będę dzwonił;) Zdecydowanie polecam.",
+      "rating": 5,
+      "time": 1760692541
+    },
+    {
+      "author_name": "Edward Sobala",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocKq06dKHCnT52sR0WocCquSh3odW0oGk1juHiqw93Q_wq_fnw=s128-c0x00000000-cc-rp-mo",
+      "text": "Sprzęt naprawiony szybko i profesjonalnie - działa jak nowy. Polecam z czystym sumieniem!",
+      "rating": 5,
+      "time": 1754064131
+    },
+    {
+      "author_name": "Barbara Dorosz",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocLX7Y_eHOvrx2DdLyEn31Vo5HWI4FmqUsivWadBWZ_MxdKo3w=s128-c0x00000000-cc-rp-mo",
+      "text": "Sprwnie, solidnie i skutecznie. Polecam",
+      "rating": 5,
+      "time": 1750939726
+    },
+    {
+      "author_name": "Bohdan D",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVRV3zbUCoByXU2Yi9Gk1Fkr8oJBjH0yZ-nQoHRwyhs5pGbwixC=s128-c0x00000000-cc-rp-mo",
+      "text": "Bardzo sprawna naprawa zmywarki i drobnego sprzętu RTV. Wszystko działa bez zarzutu, a usługa została wykonana szybko i solidnie. Świetny kontakt, fachowe podejście i przystępne ceny — serdecznie polecam!",
+      "rating": 5,
+      "time": 1750918672
+    },
+    {
+      "author_name": "Bartosz Zawalski",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWzEqsbYZoSnmfbjSu5MUBL0YpAwITEcr_TyYFgwpmvMU10Z1jL=s128-c0x00000000-cc-rp-mo",
+      "text": "Naprawa pralki, szybka i trafna diagnoza. Realizacja naprawy, praktycznie z dnia na dzień nie licząc czasu oczekiwania na cześć zmienną. Polecam serdecznie Pana zna się na swoim fachu. SZYBKI kontakt i szacun za rzetelność.",
+      "rating": 5,
+      "time": 1727166486
+    },
+    {
+      "author_name": "Magda Ryzner",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVr2VP_YAmNfKDbP-mV52eBkBpcgI6yWQ1SR4vAgK_QaPdQMKU_=s128-c0x00000000-cc-rp-mo-ba3",
+      "text": "Już kilkakrotnie Pan Piotr naprawiał nam niedziałające sprzęty AGD. Wszystkie działają do tej pory i mają się dobrze. Bardzo dziękuję Panu Piotrowi za szybką i profesjonalną usługę. Szczerze polecam.",
+      "rating": 5,
+      "time": 1727075329
+    },
+    {
+      "author_name": "Marta M",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocKRA0X6LgORfbVanU44l8XjOW-IJJUIFHWTHd7RQiu8Db4dfQ=s128-c0x00000000-cc-rp-mo",
+      "text": "Z czystym sumieniem polecam serwis za profesjonalne czyszczenie mojego ekspresu do kawy! Usługa została wykonana szybko i z najwyższą starannością. Ekspres działa teraz jak nowy, a smak kawy zyskał zupełnie nową jakość. Fachowa obsługa, miły kontakt i konkurencyjne ceny sprawiają, że na pewno wrócę przy kolejnych potrzebach. Serdecznie dziękuję za tak świetną pracę!",
+      "rating": 5,
+      "time": 1726153581
+    }
+  ],
+  "rating": 4.7,
+  "user_ratings_total": 80,
+  "update_time": "2026-03-01 12:03:10"
+}
