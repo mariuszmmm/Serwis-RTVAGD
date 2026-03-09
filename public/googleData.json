@@ -29,18 +29,18 @@
       "time": 1754055301
     },
     {
-      "author_name": "Bohdan D",
-      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVRV3zbUCoByXU2Yi9Gk1Fkr8oJBjH0yZ-nQoHRwyhs5pGbwixC=s128-c0x00000000-cc-rp-mo",
-      "text": "Bardzo sprawna naprawa zmywarki i drobnego sprzętu RTV. Wszystko działa bez zarzutu, a usługa została wykonana szybko i solidnie. Świetny kontakt, fachowe podejście i przystępne ceny — serdecznie polecam!",
-      "rating": 5,
-      "time": 1750918672
-    },
-    {
       "author_name": "Bartosz Zawalski",
       "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWzEqsbYZoSnmfbjSu5MUBL0YpAwITEcr_TyYFgwpmvMU10Z1jL=s128-c0x00000000-cc-rp-mo",
       "text": "Naprawa pralki, szybka i trafna diagnoza. Realizacja naprawy, praktycznie z dnia na dzień nie licząc czasu oczekiwania na cześć zmienną. Polecam serdecznie Pana zna się na swoim fachu. SZYBKI kontakt i szacun za rzetelność.",
       "rating": 5,
       "time": 1727166486
+    },
+    {
+      "author_name": "Magda Ryzner",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVr2VP_YAmNfKDbP-mV52eBkBpcgI6yWQ1SR4vAgK_QaPdQMKU_=s128-c0x00000000-cc-rp-mo-ba3",
+      "text": "Już kilkakrotnie Pan Piotr naprawiał nam niedziałające sprzęty AGD. Wszystkie działają do tej pory i mają się dobrze. Bardzo dziękuję Panu Piotrowi za szybką i profesjonalną usługę. Szczerze polecam.",
+      "rating": 5,
+      "time": 1727075329
     },
     {
       "author_name": "Marta M",
@@ -52,5 +52,5 @@
   ],
   "rating": 4.7,
   "user_ratings_total": 80,
-  "update_time": "2026-03-02 14:12:45"
+  "update_time": "2026-03-09 00:08:19"
 }
