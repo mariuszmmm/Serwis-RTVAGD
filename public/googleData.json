@@ -1,6 +1,13 @@
 {
   "reviews": [
     {
+      "author_name": "Dorota Kosicka",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocJUKCqRAeu5Kdox1MlSFMfUPmUIwnNBYnHugw4_Pk-IEU9sAw=s128-c0x00000000-cc-rp-mo",
+      "text": "Gorąco polecam usługi  Pana Piotra, z nowym rokiem rozpoczęła się u mnie \"czarna seria\" awarii sprzętu agd, 01 stycznia zepsuła się zmywarka, po zgłoszeniu już na następny dzień odbyła się skuteczna naprawa w domu, szybka diagnoza, szybka naprawa i rozsądny koszt naprawy, a przy tym Pan miły i uśmiechnięty, z czym nie zawsze się spotykałam przy takich naprawach. Następnie naprawa pralki, oczywiście na miejscu i w jeden dzień,  później naprawa ekspresu do kawy, wyglada jak nowy, a kawa jeszcze lepsza niż była,  więc zaniosłam również drugi ekspres do wyczyszczenia, bo jak się okazuje smak kawy o niebo lepszy. Pan Piotr sumienny, rzetelny, szybka diagnoza i naprawa, a przy tym rozsądne koszty, polecam",
+      "rating": 5,
+      "time": 1776330419
+    },
+    {
       "author_name": "Marcin Amarowicz",
       "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocJBy-S5TJKBbH9pvwTFX4ijow7ylTZxCIhZmBbqzatAYkvsoQ=s128-c0x00000000-cc-rp-mo",
       "text": "Szukałem kilku firm w Przemyślu, które zajmują się naprawą szuszarek bębnowych. Cieszę się, że natrafiłem na firmę Pana Piotra. Diagnoza i naprawa była bardzo szybka i trafna, a co najważniejsze Pan Piotr przyjechał w godzinach, które mi odpowiadały (po pracy). Pełen profesjonalizm. Jeśli coś kiedyś mi się zepsuje to już wiem gdzie będę dzwonił;) Zdecydowanie polecam.",
@@ -20,13 +27,6 @@
       "text": "Sprzęt naprawiony szybko i profesjonalnie - działa jak nowy. Polecam z czystym sumieniem!",
       "rating": 5,
       "time": 1754064131
-    },
-    {
-      "author_name": "piotrek zych",
-      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocLW8bduEpygNEvP8Qnz7uN9d3ogvYJgKlghKiq6OHiVUlBtUA=s128-c0x00000000-cc-rp-mo",
-      "text": "Polecam , gość profesjonalnie podszedł do usterki. Szybko i sprawnie🙂",
-      "rating": 5,
-      "time": 1754055301
     },
     {
       "author_name": "Bohdan D",
@@ -51,6 +51,6 @@
     }
   ],
   "rating": 4.7,
-  "user_ratings_total": 80,
-  "update_time": "2026-03-23 14:45:50"
+  "user_ratings_total": 81,
+  "update_time": "2026-04-16 12:17:19"
 }
