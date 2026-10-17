@@ -584,9 +584,9 @@ export const getDataForMetaTags = async (key) => {
         product: {
           "@type": "Product",
           "@id": appUrls.naprawa_pralek + "#product",
-          name: "Usługa naprawy pralek w Przemyślu",
+          name: "Naprawa pralek automatycznych Przemyśl",
           description: "Kompleksowa diagnostyka i naprawa pralek różnych marek w Przemyślu.",
-          // "image": { "@type": "ImageObject", "@id": appUrls.naprawa_pralek + "#primaryimage" },
+          image: imageUrls.pralka,
           brand: { "@type": "Brand", name: shortName },
           url: appUrls.naprawa_pralek,
         },
@@ -751,10 +751,10 @@ export const getDataForMetaTags = async (key) => {
         product: {
           "@type": "Product",
           "@id": appUrls.naprawa_suszarek + "#product",
-          name: "Usługa naprawy suszarek w Przemyślu",
+          name: "Naprawa suszarek do ubrań Przemyśl",
           description:
             "Diagnostyka i naprawa suszarek kondensacyjnych, z pompą ciepła i tradycyjnych, z zachowaniem najwyższej staranności.",
-          // "image": { "@type": "ImageObject", "@id": appUrls.naprawa_suszarek + "#primaryimage" },
+          image: imageUrls.suszarka,
           brand: { "@type": "Brand", name: shortName },
           url: appUrls.naprawa_suszarek,
         },
@@ -918,10 +918,10 @@ export const getDataForMetaTags = async (key) => {
         product: {
           "@type": "Product",
           "@id": appUrls.naprawa_zmywarek + "#product",
-          name: "Usługa naprawy zmywarek w Przemyślu", // "name": "Naprawa zmywarek Przemyśl",
+          name: "Naprawa zmywarek Przemyśl",
           description:
             "Szybka i profesjonalna naprawa zmywarek w Przemyślu i okolicach. Oferuję kompleksową diagnostykę oraz naprawę zmywarek wszystkich marek (Bosch, Electrolux, Beko i inne). Korzystam z profesjonalnych narzędzi i oryginalnych części, zapewniając gwarancję na usługę.",
-          // "image": { "@type": "ImageObject", "@id": appUrls.naprawa_zmywarek + "#primaryimage" },
+          image: imageUrls.zmywarka,
           brand: { "@type": "Brand", name: shortName },
           url: appUrls.naprawa_zmywarek,
         },
@@ -1085,10 +1085,10 @@ export const getDataForMetaTags = async (key) => {
         product: {
           "@type": "Product",
           "@id": appUrls.naprawa_ekspresow + "#product",
-          name: "Usługa naprawy ekspresów w Przemyślu",
+          name: "Naprawa ekspresów do kawy Przemyśl",
           description:
             "Profesjonalna naprawa ekspresów do kawy wszystkich marek w Przemyślu i okolicach. Specjalizuję się w kompleksowej naprawie domowych i profesjonalnych ekspresów, oferując szybką diagnozę i oryginalne części. Zapewniam gwarancję i pełne zadowolenie klientów.",
-          // "image": { "@type": "ImageObject", "@id": appUrls.naprawa_ekspresow + "#primaryimage" },
+          image: imageUrls.ekspres,
           brand: { "@type": "Brand", name: shortName },
           url: appUrls.naprawa_ekspresow,
         },
@@ -1245,9 +1245,9 @@ export const getDataForMetaTags = async (key) => {
         product: {
           "@type": "Product",
           "@id": appUrls.naprawa_telewizorow + "#product",
-          name: "Usługa naprawy telewizorów w Przemyślu",
+          name: "Naprawa telewizorów LED i OLED Przemyśl",
           description: "Fachowa naprawa telewizorów LCD, LED, OLED i Smart TV w Przemyślu",
-          // "image": { "@id": appUrls.naprawa_telewizorow + "#primaryimage" },
+          image: imageUrls.telewizor,
           brand: { "@type": "Brand", name: shortName },
           url: appUrls.naprawa_telewizorow,
         },

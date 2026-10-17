@@ -39,33 +39,34 @@ const MetaTags = ({ path, page, rating, ratingsTotal, reviews, imageSrcSet, imag
   } = page.schema;
 
   const getReviews = () => {
-    if (!reviews || !Array.isArray(reviews)) return null;
+    if (!reviews || !Array.isArray(reviews)) return [];
 
-    return reviews.map((review) => {
-      if (!review) return null;
+    return reviews
+      .filter(Boolean)
+      .map((review) => {
+        const text = review.text || "";
+        const reviewName = text ? text.split(" ").slice(0, 5).join(" ") + "..." : "Opinia klienta";
 
-      const reviewName = review.text.split(" ").slice(0, 5).join(" ") + "...";
-
-      return {
-        "@type": "Review",
-        id: `${appUrls.home}opinie/#review${review.time}`,
-        name: reviewName,
-        itemReviewed: {
-          "@type": "LocalBusiness",
-          "@id": appUrls.home + "#localbusiness",
-        },
-        reviewRating: {
-          "@type": "Rating",
-          ratingValue: review.rating,
-        },
-        author: {
-          "@type": "Person",
-          name: review.author_name,
-        },
-        datePublished: formattedDate(review.time),
-        reviewBody: review.text,
-      };
-    });
+        return {
+          "@type": "Review",
+          id: `${appUrls.home}opinie/#review${review.time || ""}`,
+          name: reviewName,
+          itemReviewed: {
+            "@type": "LocalBusiness",
+            "@id": appUrls.home + "#localbusiness",
+          },
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: review.rating || 5,
+          },
+          author: {
+            "@type": "Person",
+            name: review.author_name || "Klient",
+          },
+          datePublished: review.time ? formattedDate(review.time) : new Date().toISOString().split("T")[0],
+          reviewBody: text,
+        };
+      });
   };
 
   const productSchema = {
@@ -73,6 +74,7 @@ const MetaTags = ({ path, page, rating, ratingsTotal, reviews, imageSrcSet, imag
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: (rating || serwis.rating).toString(),
+      reviewCount: (ratingsTotal || serwis.ratingsTotal).toString(),
       ratingCount: (ratingsTotal || serwis.ratingsTotal).toString(),
       bestRating: "5",
       worstRating: "1",
@@ -126,7 +128,7 @@ const MetaTags = ({ path, page, rating, ratingsTotal, reviews, imageSrcSet, imag
 
       {/* test */}
       {image?.includes("https://res.cloudinary.com") && (
-        <link href='https://res.cloudinary.com' crossOrigin='anonymous' />
+        <link rel='preconnect' href='https://res.cloudinary.com' crossOrigin='anonymous' />
       )}
       {/* {image && imageSrcSet && imageSizes && href &&
         <link
@@ -166,15 +168,16 @@ const MetaTags = ({ path, page, rating, ratingsTotal, reviews, imageSrcSet, imag
             dangerouslySetInnerHTML={{
               __html: JSON.stringify({
                 "@context": "https://schema.org",
-                "@graph": [
-                  webpage,
-                  imageObject,
-                  localBusinessSchema,
-                  faqPage,
-                  // serviceSchema,    // przywrócić jeśli Product przestanie wyświetlać gwiazdki
-                  productSchema, // dodany aby wyświetlać gwiazdki
-                  breadcrumbList,
-                ],
+                "@graph": [webpage, imageObject, localBusinessSchema, faqPage, breadcrumbList],
+              }),
+            }}
+          />
+          <script
+            type='application/ld+json'
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                ...productSchema,
               }),
             }}
           />
@@ -231,6 +234,20 @@ const MetaTags = ({ path, page, rating, ratingsTotal, reviews, imageSrcSet, imag
               __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@graph": [webpage, localBusinessSchema, ...getReviews(), breadcrumbList],
+              }),
+            }}
+          />
+        </>
+      )}
+
+      {path === `${baseUrl}/polityka-prywatnosci/` && (
+        <>
+          <script
+            type='application/ld+json'
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@graph": [webpage, website, breadcrumbList],
               }),
             }}
           />

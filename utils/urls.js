@@ -1,5 +1,4 @@
-export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "";
-// export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://naprawaprzemysl.pl";
+export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://naprawaprzemysl.pl";
 
 export const cloudinaryImageUrls = {
   serwis: "https://res.cloudinary.com/difc0i71u/image/upload/v1731168333/Serwis/serwis.webp",
@@ -55,11 +54,9 @@ export const imageUrls = {
 
   suszarka: `${baseUrl}/images/naprawa-suszarek-2.webp`,
 
-  // zmywarka: `https://res.cloudinary.com/difc0i71u/image/upload/v1755748024/Serwis/naprawa-zmywarek.png`,
-
+  zmywarka: `${baseUrl}/images/naprawa-zmywarek-700.webp`,
   zmywarka_520: `${baseUrl}/images/naprawa-zmywarek-520.webp`,
   zmywarka_284: `${baseUrl}/images/naprawa-zmywarek-284.webp`,
-  // zmywarka: `${baseUrl}/images/naprawa-zmywarek.png`,
 
   telewizor: `${baseUrl}/images/naprawa-telewizorow-2.webp`,
   ekspres: `${baseUrl}/images/naprawa-ekspresow-2.webp`,
@@ -90,8 +87,6 @@ export const imageUrls = {
   serwis_1: baseUrl + "/images/serwis.jpg",
   telewizor_300: baseUrl + "/images/serwis-telewizorow-przemysl-naprawa-telewizora_300.webp",
   ekspres_300: baseUrl + "/images/serwis-ekspresow-przemysl-naprawa-ekspresu_300.webp",
-  ekspres_2: baseUrl + "/images/serwis-ekspresow-przemysl-profesjonalna-naprawa-ekspresu.webp",
-
   ekspres_2_300: baseUrl + "/images/serwis-ekspresow-przemysl-profesjonalna-naprawa-ekspresu_300.webp",
   zmywarka_300: baseUrl + "/images/serwis-zmywarek-przemysl-naprawa-zmywarki_300.webp",
   pralka_300: baseUrl + "/images/naprawa-pralek-przemysl-serwis-300.webp",

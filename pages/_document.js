@@ -46,10 +46,6 @@ export default class MyDocument extends Document {
           <link rel='apple-touch-icon' sizes='180x180' href={baseUrl + "/images/apple-touch-icon.png"} />
           <link rel='manifest' href={baseUrl + "/site.webmanifest"} />
 
-          {/* Additional favicon sizes for better support */}
-          <link rel='icon' type='image/png' sizes='32x32' href={baseUrl + "/images/favicon-32x32.png"} />
-          <link rel='icon' type='image/png' sizes='16x16' href={baseUrl + "/images/favicon-16x16.png"} />
-
           {/* Basic meta tags */}
           <meta
             key='robots'

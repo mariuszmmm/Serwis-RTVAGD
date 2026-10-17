@@ -24,9 +24,7 @@ import { getImageParameters } from "../utils/getImageParameters";
 
 const Home = ({ rating, ratingsTotal, reviews, dataForMetaTags }) => {
   const path = appUrls.home;
-  const [isPortrait, setIsPortrait] = useState(
-    typeof window !== "undefined" ? window.innerHeight > window.innerWidth : true,
-  );
+  const [isPortrait, setIsPortrait] = useState(true);
   const [activeScene, setActiveScene] = useState({
     reset: true,
     number: 0,

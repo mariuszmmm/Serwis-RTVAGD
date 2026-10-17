@@ -14,7 +14,7 @@ const QrCode = dynamic(() => import("../QrCode").then((mod) => mod.QrCode), { ss
 const Header = (props) => {
   const [scrolled, setScrolled] = useState(false);
   const [showSubNav, setShowSubNav] = useState(false);
-  const pathname = usePathname();
+  const pathname = usePathname() || "";
   const servicesPath = pathname.includes("naprawa-");
 
   useEffect(() => {
