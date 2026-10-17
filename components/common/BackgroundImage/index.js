@@ -2,8 +2,14 @@ import styled from "styled-components";
 
 export const BackgroundImage = styled.img`
   position: absolute;
-  width: 100vw;
-  height: auto;
-  opacity: 0.0001;
-  margin-top: 26px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0.10;
+  filter: brightness(0.8) contrast(1.1);
+  pointer-events: none;
+  z-index: 0;
 `;

@@ -40,7 +40,7 @@ const Dryer = ({ show, left, setHold }) => {
             ${getUrl(1400)} 1400w
           `}
           sizes="(orientation: portrait) and (max-width: 520px) 59vw, (orientation: portrait) 520px, 30vw"
-          loading="lazy"
+          loading="eager"
         />
       </Link>
     </ImageWrapper>

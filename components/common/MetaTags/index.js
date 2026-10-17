@@ -126,10 +126,9 @@ const MetaTags = ({ path, page, rating, ratingsTotal, reviews, imageSrcSet, imag
       {imageHeight && <meta key='og:image:height' property='og:image:height' content={imageHeight} />}
       {imageType && <meta key='og:image:type' property='og:image:type' content={imageType} />}
 
-      {/* test */}
-      {image?.includes("https://res.cloudinary.com") && (
-        <link rel='preconnect' href='https://res.cloudinary.com' crossOrigin='anonymous' />
-      )}
+      {/* Cloudinary preconnect & dns-prefetch */}
+      <link rel='preconnect' href='https://res.cloudinary.com' crossOrigin='anonymous' />
+      <link rel='dns-prefetch' href='https://res.cloudinary.com' />
       {/* {image && imageSrcSet && imageSizes && href &&
         <link
           rel="preload"

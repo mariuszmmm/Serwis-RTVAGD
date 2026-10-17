@@ -44,6 +44,7 @@ const DishwasherService = ({ rating, ratingsTotal, reviews, imageParameters, dat
             alt={dataForMetaTags.metaTags.imageAlt}
             title={dataForMetaTags.metaTags.imageTitle}
             loading="eager"
+            fetchpriority="high"
           />
         </Section>
         <Section>

@@ -35,6 +35,7 @@ const WashingMachineService = ({ rating, ratingsTotal, reviews, imageParameters,
             alt={dataForMetaTags.metaTags.imageAlt}
             title={dataForMetaTags.metaTags.imageTitle}
             loading='eager'
+            fetchpriority='high'
           />
         </Section>
 

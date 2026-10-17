@@ -44,6 +44,7 @@ const DryerService = ({ rating, ratingsTotal, reviews, imageParameters, dataForM
             alt={dataForMetaTags.metaTags.imageAlt}
             title={dataForMetaTags.metaTags.imageTitle}
             loading="eager"
+            fetchpriority="high"
           />
         </Section>
 
