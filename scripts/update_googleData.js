@@ -56,8 +56,13 @@ async function fetchData() {
     time: item.time || 0,
   }));
 
-  const filteredRewievs = newReviews.filter((review) => review.text && review.rating > 4);
-  const additionalFilteredRewievs = newAdditionalReviews.filter((review) => review.text && review.rating > 4);
+  const MIN_REVIEW_LENGTH = 200;
+  const filteredRewievs = newReviews.filter(
+    (review) => review.text && review.text.trim().length >= MIN_REVIEW_LENGTH && review.rating >= 5
+  );
+  const additionalFilteredRewievs = newAdditionalReviews.filter(
+    (review) => review.text && review.text.trim().length >= MIN_REVIEW_LENGTH && review.rating >= 5
+  );
 
   const uniqueReviews = [];
   [...filteredRewievs, ...additionalFilteredRewievs].forEach((rewiew) => {
