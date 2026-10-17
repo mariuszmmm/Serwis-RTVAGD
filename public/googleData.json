@@ -1,6 +1,13 @@
 {
   "reviews": [
     {
+      "author_name": "Rafal P",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocKuPFfe4vLmRlapQpdrXb1fCVfxZjSIJEa_KrAkwvVdcmPEzg=s128-c0x00000000-cc-rp-mo",
+      "text": "Skromność",
+      "rating": 5,
+      "time": 1790183698
+    },
+    {
       "author_name": "Dorota Kosicka",
       "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocJUKCqRAeu5Kdox1MlSFMfUPmUIwnNBYnHugw4_Pk-IEU9sAw=s128-c0x00000000-cc-rp-mo",
       "text": "Gorąco polecam usługi  Pana Piotra, z nowym rokiem rozpoczęła się u mnie \"czarna seria\" awarii sprzętu agd, 01 stycznia zepsuła się zmywarka, po zgłoszeniu już na następny dzień odbyła się skuteczna naprawa w domu, szybka diagnoza, szybka naprawa i rozsądny koszt naprawy, a przy tym Pan miły i uśmiechnięty, z czym nie zawsze się spotykałam przy takich naprawach. Następnie naprawa pralki, oczywiście na miejscu i w jeden dzień,  później naprawa ekspresu do kawy, wyglada jak nowy, a kawa jeszcze lepsza niż była,  więc zaniosłam również drugi ekspres do wyczyszczenia, bo jak się okazuje smak kawy o niebo lepszy. Pan Piotr sumienny, rzetelny, szybka diagnoza i naprawa, a przy tym rozsądne koszty, polecam",
@@ -22,25 +29,11 @@
       "time": 1754754731
     },
     {
-      "author_name": "Edward Sobala",
-      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocKq06dKHCnT52sR0WocCquSh3odW0oGk1juHiqw93Q_wq_fnw=s128-c0x00000000-cc-rp-mo",
-      "text": "Sprzęt naprawiony szybko i profesjonalnie - działa jak nowy. Polecam z czystym sumieniem!",
-      "rating": 5,
-      "time": 1754064131
-    },
-    {
       "author_name": "Bohdan D",
       "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVRV3zbUCoByXU2Yi9Gk1Fkr8oJBjH0yZ-nQoHRwyhs5pGbwixC=s128-c0x00000000-cc-rp-mo-ba2",
       "text": "Bardzo sprawna naprawa zmywarki i drobnego sprzętu RTV. Wszystko działa bez zarzutu, a usługa została wykonana szybko i solidnie. Świetny kontakt, fachowe podejście i przystępne ceny — serdecznie polecam!",
       "rating": 5,
       "time": 1750918672
-    },
-    {
-      "author_name": "Bartosz Zawalski",
-      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWzEqsbYZoSnmfbjSu5MUBL0YpAwITEcr_TyYFgwpmvMU10Z1jL=s128-c0x00000000-cc-rp-mo",
-      "text": "Naprawa pralki, szybka i trafna diagnoza. Realizacja naprawy, praktycznie z dnia na dzień nie licząc czasu oczekiwania na cześć zmienną. Polecam serdecznie Pana zna się na swoim fachu. SZYBKI kontakt i szacun za rzetelność.",
-      "rating": 5,
-      "time": 1727166486
     },
     {
       "author_name": "Marta M",
@@ -52,5 +45,5 @@
   ],
   "rating": 4.7,
   "user_ratings_total": 81,
-  "update_time": "2026-04-19 00:13:55"
+  "update_time": "2026-10-17 04:57:04"
 }
