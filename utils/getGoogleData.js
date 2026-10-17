@@ -8,9 +8,15 @@ const formatGoogleData = (reviews, ratingsTotal, rating) => {
     throw new Error("Invalid response from Google Places API");
   }
 
-  let selectedReviews = [...reviews];
-  if (reviews.length < 5) {
-    let reserveReviews = serwis.reviews.filter((item) => !selectedReviews.find((review) => review.text === item.text));
+  const MIN_REVIEW_LENGTH = 200;
+  let selectedReviews = reviews.filter(
+    (review) => review?.text && review.text.trim().length >= MIN_REVIEW_LENGTH && (review.rating >= 5 || !review.rating)
+  );
+
+  if (selectedReviews.length < 5) {
+    let reserveReviews = serwis.reviews
+      .filter((item) => item?.text && item.text.trim().length >= MIN_REVIEW_LENGTH)
+      .filter((item) => !selectedReviews.find((review) => review.text === item.text));
     let reserveReviewsIndex = 0;
 
     while (selectedReviews.length < 5 && reserveReviewsIndex < reserveReviews.length) {
