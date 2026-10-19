@@ -49,6 +49,24 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.color.white};
     letter-spacing: 0.5px;
   };
+
+  /* Optymalizacja Cookiebot na mobile - dolny panel zamiast zasłaniania całego ekranu */
+  @media (max-width: 768px) {
+    #CybotCookiebotDialog {
+      top: auto !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+      max-height: 45vh !important;
+      border-radius: 16px 16px 0 0 !important;
+      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.6) !important;
+      transform: none !important;
+      margin: 0 !important;
+      overflow-y: auto !important;
+    }
+  }
 `;
 
 export default GlobalStyle;
