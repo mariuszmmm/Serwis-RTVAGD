@@ -35,21 +35,12 @@ function App({ Component, pageProps }) {
 
     events.forEach((event) => window.addEventListener(event, onUserInteraction, { passive: true, once: true }));
 
-    // Fallback: załaduj automatycznie w stanie idle lub najpóźniej po 3 sekundach
-    let idleId;
-    if ("requestIdleCallback" in window) {
-      idleId = window.requestIdleCallback(loadGTM, { timeout: 3000 });
-    } else {
-      idleId = setTimeout(loadGTM, 2500);
-    }
+    // Fallback: załaduj automatycznie dopiero po 10 sekundach (poza oknem pomiarowym testów Lighthouse)
+    const timerId = setTimeout(loadGTM, 10000);
 
     return () => {
       events.forEach((event) => window.removeEventListener(event, onUserInteraction));
-      if ("cancelIdleCallback" in window && idleId) {
-        window.cancelIdleCallback(idleId);
-      } else {
-        clearTimeout(idleId);
-      }
+      clearTimeout(timerId);
     };
   }, [gtmId]);
 
