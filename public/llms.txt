@@ -1,12 +1,18 @@
-# llms.txt
-Site: https://naprawaprzemysl.pl
-Purpose: Serwis RTV i AGD w Przemyślu
+# Serwis RTV i AGD w Przemyślu
 
-Permissions:
-  - search_index: allowed
-  - ai_training: disallowed
-  - ai_inference: disallowed
+> Profesjonalny serwis i naprawa sprzętu AGD i RTV w Przemyślu i okolicach. Specjalizacja: naprawa pralek, suszarek, zmywarek, ekspresów do kawy oraz telewizorów.
 
-Policies: https://naprawaprzemysl.pl/polityka-prywatnosci
-Contact: mailto:piotrek_serwis@wp.pl
-Last-Updated: 2026-02-03
+## Usługi serwisowe
+
+- [Naprawa pralek](https://naprawaprzemysl.pl/naprawa-pralek/): Szybka diagnoza i skuteczna naprawa pralek automatycznych w Przemyślu.
+- [Naprawa suszarek](https://naprawaprzemysl.pl/naprawa-suszarek/): Serwis suszarek bębnowych i kondensacyjnych.
+- [Naprawa zmywarek](https://naprawaprzemysl.pl/naprawa-zmywarek/): Profesjonalna naprawa zmywarek do naczyń.
+- [Naprawa ekspresów do kawy](https://naprawaprzemysl.pl/naprawa-ekspresow/): Serwis i konserwacja ekspresów ciśnieniowych.
+- [Naprawa telewizorów](https://naprawaprzemysl.pl/naprawa-telewizorow/): Naprawa telewizorów LED, OLED, LCD i Smart TV.
+
+## Informacje kontaktowe i opinie
+
+- [Kontakt](https://naprawaprzemysl.pl/kontakt/): Dane kontaktowe, telefon 790 258 612, adres serwisu.
+- [Opinie klientów](https://naprawaprzemysl.pl/opinie/): Oceny i recenzje z Google.
+- [Polityka prywatności](https://naprawaprzemysl.pl/polityka-prywatnosci/): Informacje o przetwarzaniu danych osobowych.
+
