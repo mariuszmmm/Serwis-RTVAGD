@@ -75,7 +75,6 @@ const MetaTags = ({ path, page, rating, ratingsTotal, reviews, imageSrcSet, imag
       "@type": "AggregateRating",
       ratingValue: (rating || serwis.rating).toString(),
       reviewCount: (ratingsTotal || serwis.ratingsTotal).toString(),
-      ratingCount: (ratingsTotal || serwis.ratingsTotal).toString(),
       bestRating: "5",
       worstRating: "1",
     },
@@ -84,13 +83,6 @@ const MetaTags = ({ path, page, rating, ratingsTotal, reviews, imageSrcSet, imag
 
   const serviceSchema = {
     ...service,
-    // "aggregateRating": {
-    //   "@type": "AggregateRating",
-    //   "ratingValue": (rating || serwis.rating).toString(),
-    //   "ratingCount": (ratingsTotal || serwis.ratingsTotal).toString(),
-    //   "bestRating": "5",
-    //   "worstRating": "1",
-    // },
   };
 
   const localBusinessSchema = {
@@ -161,26 +153,22 @@ const MetaTags = ({ path, page, rating, ratingsTotal, reviews, imageSrcSet, imag
         path === `${baseUrl}/naprawa-suszarek/` ||
         path === `${baseUrl}/naprawa-ekspresow/` ||
         path === `${baseUrl}/naprawa-telewizorow/`) && (
-        <>
-          <script
-            type='application/ld+json'
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@graph": [webpage, imageObject, localBusinessSchema, faqPage, breadcrumbList],
-              }),
-            }}
-          />
-          <script
-            type='application/ld+json'
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                ...productSchema,
-              }),
-            }}
-          />
-        </>
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                webpage,
+                imageObject,
+                productSchema,
+                breadcrumbList,
+                serviceSchema,
+                faqPage,
+              ].filter(Boolean),
+            }),
+          }}
+        />
       )}
 
       {path === `${baseUrl}/` && (

@@ -8,7 +8,7 @@ import dynamic from "next/dynamic";
 import { Emoticon } from "../common/Emoticon";
 import { appUrls, imageUrls } from "../../utils/urls";
 import Image from "next/image";
-const GoogleRating = dynamic(() => import("../GoogleRating").then((mod) => mod.GoogleRating), { ssr: false });
+import { GoogleRating } from "../GoogleRating";
 const QrCode = dynamic(() => import("../QrCode").then((mod) => mod.QrCode), { ssr: false });
 
 const Header = (props) => {
