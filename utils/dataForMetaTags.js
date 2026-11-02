@@ -45,6 +45,17 @@ export const getDataForMetaTags = async (key) => {
     image: "https://naprawaprzemysl.pl/images/logo.svg",
   };
 
+  const serviceProvider = {
+    "@type": "LocalBusiness",
+    "@id": appUrls.home + "#localbusiness",
+    name: name,
+    url: appUrls.home,
+    telephone: serwis.phone.number,
+    priceRange: "100-500 PLN",
+    image: imageUrls.serwis,
+    address,
+  };
+
   const localBusiness = {
     "@type": "LocalBusiness",
     "@id": appUrls.home + "#localbusiness", // dodane 17.05.2025
@@ -564,12 +575,7 @@ export const getDataForMetaTags = async (key) => {
           description:
             "Profesjonalny serwis i naprawa pralek wszystkich marek w Przemyślu. Szybka diagnoza i gwarancja.",
           // "image": { "@type": "ImageObject", "@id": appUrls.naprawa_pralek + "#primaryimage" },
-          provider: {
-            "@type": "LocalBusiness",
-            name: name,
-            url: appUrls.home,
-            "@id": appUrls.home + "#localbusiness",
-          },
+          provider: serviceProvider,
           url: appUrls.naprawa_pralek,
           areaServed: {
             "@type": "GeoCircle",
@@ -731,12 +737,7 @@ export const getDataForMetaTags = async (key) => {
           description:
             "Profesjonalny serwis i naprawa suszarek do ubrań wszystkich typów w Przemyślu. Szybka diagnoza i gwarancja.",
           // "image": { "@type": "ImageObject", "@id": appUrls.naprawa_suszarek + "#primaryimage" },
-          provider: {
-            "@type": "LocalBusiness",
-            name: name,
-            url: appUrls.home,
-            "@id": appUrls.home + "#localbusiness",
-          },
+          provider: serviceProvider,
           url: appUrls.naprawa_suszarek,
           areaServed: {
             "@type": "GeoCircle",
@@ -898,12 +899,7 @@ export const getDataForMetaTags = async (key) => {
           description:
             "Profesjonalny serwis i naprawa zmywarek wolnostojących i do zabudowy w Przemyślu. Szybka diagnoza i gwarancja.",
           // "image": { "@type": "ImageObject", "@id": appUrls.naprawa_zmywarek + "#primaryimage" },
-          provider: {
-            "@type": "LocalBusiness",
-            name: name,
-            url: appUrls.home,
-            "@id": appUrls.home + "#localbusiness",
-          },
+          provider: serviceProvider,
           url: appUrls.naprawa_zmywarek,
           areaServed: {
             "@type": "GeoCircle",
@@ -1065,12 +1061,7 @@ export const getDataForMetaTags = async (key) => {
           description:
             "Profesjonalny serwis i naprawa ekspresów ciśnieniowych, automatycznych i kolbowych wszystkich marek w Przemyślu. Szybka diagnoza i gwarancja.",
           // "image": { "@type": "ImageObject", "@id": appUrls.naprawa_ekspresow + "#primaryimage" },
-          provider: {
-            "@type": "LocalBusiness",
-            name: name,
-            url: appUrls.home,
-            "@id": appUrls.home + "#localbusiness",
-          },
+          provider: serviceProvider,
           url: appUrls.naprawa_ekspresow,
           areaServed: {
             "@type": "GeoCircle",
@@ -1225,12 +1216,7 @@ export const getDataForMetaTags = async (key) => {
           description:
             "Profesjonalny serwis i naprawa telewizorów LCD, LED, OLED i Smart TV wszystkich marek w Przemyślu. Szybka diagnoza i gwarancja.",
           // "image": { "@type": "ImageObject", "@id": appUrls.naprawa_telewizorow + "#primaryimage" },
-          provider: {
-            "@type": "LocalBusiness",
-            name: name,
-            url: appUrls.home,
-            "@id": appUrls.home + "#localbusiness",
-          },
+          provider: serviceProvider,
           url: appUrls.naprawa_telewizorow,
           areaServed: {
             "@type": "GeoCircle",
