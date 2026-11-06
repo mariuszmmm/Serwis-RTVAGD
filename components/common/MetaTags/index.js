@@ -159,6 +159,7 @@ const MetaTags = ({ path, page, rating, ratingsTotal, reviews, imageSrcSet, imag
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@graph": [
+                website,
                 webpage,
                 imageObject,
                 productSchema,
@@ -192,7 +193,7 @@ const MetaTags = ({ path, page, rating, ratingsTotal, reviews, imageSrcSet, imag
             dangerouslySetInnerHTML={{
               __html: JSON.stringify({
                 "@context": "https://schema.org",
-                "@graph": [contactPage, localBusinessSchema, breadcrumbList],
+                "@graph": [website, contactPage, localBusinessSchema, breadcrumbList].filter(Boolean),
               }),
             }}
           />
@@ -206,7 +207,7 @@ const MetaTags = ({ path, page, rating, ratingsTotal, reviews, imageSrcSet, imag
             dangerouslySetInnerHTML={{
               __html: JSON.stringify({
                 "@context": "https://schema.org",
-                "@graph": [aboutPage, person, localBusinessSchema, breadcrumbList],
+                "@graph": [website, aboutPage, person, localBusinessSchema, breadcrumbList].filter(Boolean),
               }),
             }}
           />
@@ -220,7 +221,7 @@ const MetaTags = ({ path, page, rating, ratingsTotal, reviews, imageSrcSet, imag
             dangerouslySetInnerHTML={{
               __html: JSON.stringify({
                 "@context": "https://schema.org",
-                "@graph": [webpage, localBusinessSchema, ...getReviews(), breadcrumbList],
+                "@graph": [website, webpage, localBusinessSchema, ...getReviews(), breadcrumbList].filter(Boolean),
               }),
             }}
           />
