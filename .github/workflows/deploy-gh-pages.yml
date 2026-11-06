@@ -49,6 +49,13 @@ jobs:
         if: env.SHOULD_DEPLOY == 'true'
         run: npm ci
 
+      - name: Pobierz aktualne pliki z brancha data przed buildem
+        if: env.SHOULD_DEPLOY == 'true'
+        run: |
+          git fetch origin data
+          git show origin/data:public/googleData.json > public/googleData.json || echo "googleData.json nie istnieje na data"
+          git show origin/data:public/imageParameters.json > public/imageParameters.json || echo "imageParameters.json nie istnieje na data"
+
       - name: Build static site
         if: env.SHOULD_DEPLOY == 'true'
         run: npm run build
@@ -58,14 +65,11 @@ jobs:
           NEXT_PUBLIC_CLOUDINARY_API_KEY: ${{ secrets.NEXT_PUBLIC_CLOUDINARY_API_KEY }}
           NEXT_PUBLIC_CLOUDINARY_API_SECRET: ${{ secrets.NEXT_PUBLIC_CLOUDINARY_API_SECRET }}
 
-      - name: Pobierz pliki z brancha data
-        if: env.SHOULD_DEPLOY == 'true'
-        run: git fetch origin data
-
       - name: Skopiuj pliki do out
         if: env.SHOULD_DEPLOY == 'true'
         run: |
           cp public/CNAME ./out/CNAME
+          git show origin/data:public/googleData.json > ./out/data.json || echo "googleData.json nie istnieje"
           git show origin/data:public/imageParameters.json > ./out/imageParameters.json || echo "imageParameters.json nie istnieje"
           git show origin/data:public/sitemap.xml > ./out/sitemap.xml || echo "sitemap.xml nie istnieje"
 

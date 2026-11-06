@@ -1062,6 +1062,14 @@ export const getDataForMetaTags = async (key) => {
                 text: "Termin ustalamy indywidualnie, starając się zminimalizować przestój urządzenia. Dokładne terminy zależą od dostępności części i rodzaju usterki.",
               },
             },
+            {
+              "@type": "Question",
+              name: "Jak wygląda wycena naprawy lub odkamieniania ekspresu i czy cena może ulec zmianie?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Każdą naprawę poprzedzam diagnozą i telefonicznym przekazaniem dokładnego kosztu usługi. Jeśli podczas przeglądu lub odkamieniania okaże się, że ekspres wymaga dodatkowej naprawy lub wymiany części, zawsze dzwonię i pytam o zgodę – żadne płatne prace nie są wykonywane bez wcześniejszej akceptacji wyceny przez klienta.",
+              },
+            },
           ],
         },
         place: {

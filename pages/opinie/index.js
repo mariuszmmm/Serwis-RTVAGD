@@ -8,6 +8,9 @@ import { getDataForMetaTags } from "../../utils/dataForMetaTags";
 import { getGoogleData } from "../../utils/getGoogleData";
 import { Section } from "../../components/common/Section";
 import { HeroText } from "../../components/common/Hero/HeroText";
+import { StyledText } from "../../components/common/Text/styled";
+import { StyledLink } from "../../components/common/StyledLink";
+import { Break } from "../../components/Break";
 import { appUrls } from "../../utils/urls";
 import { getImageParameters } from "../../utils/getImageParameters";
 
@@ -49,10 +52,34 @@ const Reviews = ({ status, reviews, rating, ratingsTotal, dataForMetaTags }) => 
             </HeroText>
             <ButtonLink
               href={serwis.url.addTestimonial}
+              target="_blank"
               rel="noopener noreferrer"
             >
               Zostaw swoją opinię
             </ButtonLink>
+            <StyledText $disclaimer>
+              Prezentujemy wybrane, nieweryfikowane przez serwis opinie z Google.
+              <Break />
+              Zobacz{" "}
+              <StyledLink
+                href={serwis.url.GMF}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Zobacz wszystkie opinie w Mapach Google"
+              >
+                wszystkie opinie w Google
+              </StyledLink>{" "}
+              oraz{" "}
+              <span style={{ whiteSpace: "nowrap" }}>
+                <StyledLink
+                  href={`${appUrls.polityka_prywatnosci}#opinie`}
+                  title="Zasady publikacji opinii"
+                >
+                  zasady publikacji opinii
+                </StyledLink>
+                .
+              </span>
+            </StyledText>
           </Section>}
 
       </Container>

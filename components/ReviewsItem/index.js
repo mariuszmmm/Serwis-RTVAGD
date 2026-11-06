@@ -16,7 +16,8 @@ const ReviewsItem = ({ reviewIndex, item }) => (
       <Avatar>
         <Image
           src={item?.profile_photo_url}
-          alt="Foto"
+          alt={item?.author_name ? `Zdjęcie profilowe ${item.author_name}` : "Zdjęcie profilowe klienta"}
+          referrerPolicy="no-referrer"
           loading='lazy'
           fill
         />

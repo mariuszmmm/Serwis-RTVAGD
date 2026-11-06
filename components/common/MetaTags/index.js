@@ -43,13 +43,13 @@ const MetaTags = ({ path, page, rating, ratingsTotal, reviews, imageSrcSet, imag
 
     return reviews
       .filter(Boolean)
-      .map((review) => {
+      .map((review, index) => {
         const text = review.text || "";
         const reviewName = text ? text.split(" ").slice(0, 5).join(" ") + "..." : "Opinia klienta";
 
         return {
           "@type": "Review",
-          id: `${appUrls.home}opinie/#review${review.time || ""}`,
+          "@id": `${appUrls.opinie}#review${index + 1}`,
           name: reviewName,
           itemReviewed: {
             "@type": "LocalBusiness",

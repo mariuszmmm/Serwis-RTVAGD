@@ -1,4 +1,7 @@
-export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://naprawaprzemysl.pl";
+export const baseUrl =
+  process.env.NODE_ENV === "development"
+    ? (process.env.NEXT_PUBLIC_BASE_URL ?? "")
+    : (process.env.NEXT_PUBLIC_BASE_URL || "https://naprawaprzemysl.pl");
 
 export const cloudinaryImageUrls = {
   serwis: "https://res.cloudinary.com/difc0i71u/image/upload/v1731168333/Serwis/serwis.webp",

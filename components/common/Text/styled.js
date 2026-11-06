@@ -53,6 +53,23 @@ export const StyledText = styled.p`
     margin: 1rem 0;
   `}
 
+  ${({ $disclaimer }) => $disclaimer && css`
+    max-width: 580px;
+    margin: 0 auto;
+    font-size: clamp(0.75rem, 1.8vw, 0.88rem);
+    line-height: 1.7;
+    text-align: center;
+    text-wrap: balance;
+    color: ${({ theme }) => theme.color.secondary};
+    opacity: 0.85;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 16px;
+
+    a {
+      white-space: nowrap;
+    }
+  `}
+
   h3 {
     margin-top: 1rem;
     margin-bottom: 0;

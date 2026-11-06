@@ -72,7 +72,7 @@ const CoffeeMachineService = ({ rating, ratingsTotal, reviews, imageParameters, 
             <li><strong>Szybka diagnoza</strong>: precyzyjnie określam źródło awarii, by ograniczyć czas przestoju ekspresu.</li>
             <li><strong>Wieloletnie doświadczenie</strong>: praca z różnymi modelami i markami ekspresów – od urządzeń kompaktowych po profesjonalne maszyny gastronomiczne.</li>
             <li><strong>Sprawdzone części</strong>: korzystam z komponentów o odpowiednich parametrach, by przywrócić niezawodne działanie ekspresu.</li>
-            <li><strong>Przejrzystość działań</strong>: wyjaśniam przyczynę usterki i zakres koniecznych prac, abyś wiedział, jakie są etapy naprawy i związane z tym koszty.</li>
+            <li><strong>Jawna wycena przed naprawą</strong>: zawsze dzwonię z informacją o przyczynie usterki i całkowitym koszcie przed podjęciem płatnych prac – cena usługi nigdy nie zmienia się bez Twojej wiedzy i akceptacji.</li>
           </StyledText>
         </Section>
 
@@ -80,7 +80,7 @@ const CoffeeMachineService = ({ rating, ratingsTotal, reviews, imageParameters, 
           <SubTitle>Jak przebiega proces Naprawy Ekspresu do Kawy?</SubTitle>
           <StyledText as="ol" >
             <li><strong>Konsultacja i wstępne ustalenie</strong>: opis problemu (objawy, model), wstępne wskazówki co do możliwych przyczyn i terminu wizyty.</li>
-            <li><strong>Diagnostyka</strong>: dokładna kontrola układu hydraulicznego, ciśnieniowego i elektronicznego; odczyt kodów błędów, testy funkcjonalne.</li>
+            <li><strong>Diagnostyka i akceptacja kosztów</strong>: dokładna kontrola układu hydraulicznego, ciśnieniowego i elektronicznego; jeśli poza standardową konserwacją lub odkamienianiem urządzenie wymaga naprawy podzespołów, zawsze kontaktuję się telefonicznie w celu przedstawienia kosztorysu do akceptacji.</li>
             <li><strong>Naprawa i konserwacja</strong>: czyszczenie systemu zaparzania, wymiana uszczelek, naprawa pompy, modułów elektronicznych lub innych uszkodzonych komponentów.</li>
             <li><strong>Test końcowy</strong>: przygotowanie próbnej kawy, ocena temperatury, smaku i funkcji spieniania mleka, weryfikacja szczelności instalacji.</li>
             <li><strong>Porady użytkowe</strong>: wskazówki dotyczące regularnego odkamieniania, wymiany filtrów wody i codziennej pielęgnacji, aby uniknąć powtórnych awarii.</li>

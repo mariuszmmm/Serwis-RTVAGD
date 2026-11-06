@@ -127,6 +127,35 @@ const PrivacyPolicy = ({ rating, ratingsTotal, dataForMetaTags }) => {
             Użytkownik może samodzielnie zarządzać plikami cookies poprzez ustawienia swojej przeglądarki internetowej.
           </Text>
 
+          <SubTitle id='opinie' style={{ scrollMarginTop: "120px" }}>
+            Zasady publikacji opinii
+          </SubTitle>
+          <Text>
+            Opinie prezentowane na stronie internetowej (w szczególności na podstronie Opinie) pochodzą z publicznie
+            dostępnego Profilu Firmy w serwisie Google Maps i podlegają wewnętrznym mechanizmom publikacji Google LLC:
+          </Text>
+          <Text as='ul' $list>
+            <li>
+              Administrator serwisu nie posiada technicznej możliwości indywidualnej weryfikacji w systemie Google, czy
+              każda opublikowana tam opinia pochodzi od konsumenta, który faktycznie skorzystał z usług serwisu,
+            </li>
+            <li>
+              na podstronie Opinie automatycznie wyświetlane są wybrane, szczegółowe recenzje 5-gwiazdkowe (o długości
+              co najmniej 200 znaków) pobrane za pośrednictwem oficjalnego interfejsu Google API,
+            </li>
+            <li>
+              widoczna na stronie średnia ocena serwisu jest wyliczana bezpośrednio przez Google jako średnia ze
+              wszystkich wystawionych ocen – zarówno pozytywnych, jak i negatywnych,
+            </li>
+            <li>
+              pełna, niefiltrowana lista wszystkich opinii jest publicznie dostępna w{" "}
+              <StyledLink href={serwis.url.GMF} target='_blank' rel='noopener noreferrer'>
+                wizytówce serwisu w Mapach Google
+              </StyledLink>
+              .
+            </li>
+          </Text>
+
           <SubTitle>Zmiany w polityce prywatności</SubTitle>
           <Text>
             Administrator zastrzega sobie prawo do wprowadzania zmian w niniejszej Polityce prywatności. Aktualna wersja
