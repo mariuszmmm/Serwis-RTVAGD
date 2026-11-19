@@ -11,9 +11,13 @@ const ContactForm = () => {
   const [message, setMessage] = useState("");
   const [showInfo, setShowInfo] = useState(false);
   const [success, setSuccess] = useState(null);
+  const [isSending, setIsSending] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
+    if (isSending) return;
+    setIsSending(true);
+
     const templateParams = {
       from_name: name,
       from_email: email,
@@ -22,12 +26,14 @@ const ContactForm = () => {
     };
 
     emailjs
-      .send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+      .send(SERVICE_ID, TEMPLATE_ID, templateParams, {
+        publicKey: PUBLIC_KEY,
+      })
       .then((response) => {
-        setName("");
-        setEmail("");
-        setMessage("");
         if (response.status === 200) {
+          setName("");
+          setEmail("");
+          setMessage("");
           setSuccess(true);
         } else {
           setSuccess(false);
@@ -35,16 +41,22 @@ const ContactForm = () => {
         setShowInfo(true);
       })
       .catch((error) => {
+        console.error("Błąd wysyłania wiadomości (EmailJS):", error);
         setSuccess(false);
         setShowInfo(true);
+      })
+      .finally(() => {
+        setIsSending(false);
       });
   };
 
   useEffect(() => {
     if (showInfo) {
-      setTimeout(() => {
+      const timerId = setTimeout(() => {
         setShowInfo(false);
       }, 3000);
+
+      return () => clearTimeout(timerId);
     }
   }, [showInfo]);
 
@@ -81,6 +93,7 @@ const ContactForm = () => {
         type="submit"
         value="Send"
         $submit
+        disabled={isSending}
       >
         Prześlij
       </Button>

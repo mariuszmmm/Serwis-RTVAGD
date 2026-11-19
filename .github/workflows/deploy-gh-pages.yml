@@ -1,6 +1,7 @@
 name: Deploy to GitHub Pages
 
 on:
+  workflow_dispatch:
   workflow_run:
     workflows:
       - "Update googleData.json"
@@ -64,6 +65,10 @@ jobs:
           NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: ${{ secrets.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME }}
           NEXT_PUBLIC_CLOUDINARY_API_KEY: ${{ secrets.NEXT_PUBLIC_CLOUDINARY_API_KEY }}
           NEXT_PUBLIC_CLOUDINARY_API_SECRET: ${{ secrets.NEXT_PUBLIC_CLOUDINARY_API_SECRET }}
+          NEXT_PUBLIC_SERVICE_ID: ${{ secrets.NEXT_PUBLIC_SERVICE_ID }}
+          NEXT_PUBLIC_TEMPLATE_ID: ${{ secrets.NEXT_PUBLIC_TEMPLATE_ID }}
+          NEXT_PUBLIC_PUBLIC_KEY: ${{ secrets.NEXT_PUBLIC_PUBLIC_KEY }}
+          NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID }}
 
       - name: Skopiuj pliki do out
         if: env.SHOULD_DEPLOY == 'true'
