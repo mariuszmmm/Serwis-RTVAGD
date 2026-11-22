@@ -11,7 +11,7 @@ import { HeroText } from "../../components/common/Hero/HeroText";
 import { StyledText } from "../../components/common/Text/styled";
 import { StyledLink } from "../../components/common/StyledLink";
 import { Break } from "../../components/Break";
-import { appUrls } from "../../utils/urls";
+import { appUrls, routes } from "../../utils/urls";
 import { getImageParameters } from "../../utils/getImageParameters";
 
 const Reviews = ({ status, reviews, rating, ratingsTotal, openingHours, dataForMetaTags }) => {
@@ -73,7 +73,7 @@ const Reviews = ({ status, reviews, rating, ratingsTotal, openingHours, dataForM
               oraz{" "}
               <span style={{ whiteSpace: "nowrap" }}>
                 <StyledLink
-                  href={`${appUrls.polityka_prywatnosci}#opinie`}
+                  href={`${routes.polityka_prywatnosci}#opinie`}
                   title="Zasady publikacji opinii"
                 >
                   zasady publikacji opinii

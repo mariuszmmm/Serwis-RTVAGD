@@ -14,8 +14,7 @@ import {
 } from "./styled";
 import { serwis } from "../../utils/serwis";
 import { SubTitle } from "../common/SubTitle";
-import { appUrls } from "../../utils/urls";
-import Link from "next/link";
+import { routes } from "../../utils/urls";
 
 const Footer = () => (
   <FooterWrapper>
@@ -38,7 +37,7 @@ const Footer = () => (
           <FacebookIcon />
           <FooterText>Facebook</FooterText>
         </StyledLink>
-        <StyledLink $area='link' href={appUrls.home} title='naprawaprzemysl.pl'>
+        <StyledLink $area='link' href={routes.home} title='naprawaprzemysl.pl'>
           <LinkIcon />
           <FooterText>{"naprawaprzemysl.pl"} </FooterText>
         </StyledLink>
@@ -47,9 +46,9 @@ const Footer = () => (
           <FooterText>Google</FooterText>
         </StyledLink>
       </FooterInfo>
-      <FooterCopy>
-        © 2025 {serwis.shortName}. Wszelkie prawa zastrzeżone.
-        <StyledLink $area='polityka' href={appUrls.polityka_prywatnosci} $footer>
+      <FooterCopy suppressHydrationWarning>
+        © {new Date().getFullYear()} {serwis.shortName}. Wszelkie prawa zastrzeżone.
+        <StyledLink $area='polityka' href={routes.polityka_prywatnosci} $footer>
           Polityka prywatności.
         </StyledLink>
       </FooterCopy>

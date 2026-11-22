@@ -2,7 +2,7 @@ import { Container } from '../../components/common/Container';
 import { Section } from '../../components/common/Section';
 import { Title } from '../../components/common/Title';
 import { SubTitle } from '../../components/common/SubTitle';
-import { appUrls, imageUrls } from '../../utils/urls';
+import { appUrls, imageUrls, routes } from '../../utils/urls';
 import MetaTags from '../../components/common/MetaTags';
 import { getDataForMetaTags } from '../../utils/dataForMetaTags';
 import { ButtonLink } from '../../components/common/ButtonLink';
@@ -120,10 +120,10 @@ const DryerService = ({ rating, ratingsTotal, reviews, imageParameters, dataForM
           <SubTitle>Sprawdź też inne usługi</SubTitle>
           <StyledText as="ul" $list>
             <li>
-              <StyledLink href={appUrls.naprawa_pralek}><strong>Naprawa pralek</strong></StyledLink>
+              <StyledLink href={routes.naprawa_pralek}><strong>Naprawa pralek</strong></StyledLink>
             </li>
             <li>
-              <StyledLink href={appUrls.naprawa_zmywarek}><strong>Naprawa zmywarek</strong></StyledLink>
+              <StyledLink href={routes.naprawa_zmywarek}><strong>Naprawa zmywarek</strong></StyledLink>
             </li>
             {/* <li>
               <StyledLink href={appUrls.naprawa_ekspresow}><strong>Naprawa ekspresów do kawy</strong></StyledLink>

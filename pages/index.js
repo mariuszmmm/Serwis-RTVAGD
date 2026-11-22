@@ -16,7 +16,7 @@ import { StyledLink } from "../components/common/StyledLink";
 import { useState, useEffect, useRef } from "react";
 import { mobileScene, scene } from "../utils/scenes";
 import MetaTags from "../components/common/MetaTags";
-import { appUrls } from "../utils/urls";
+import { appUrls, routes } from "../utils/urls";
 import { StyledText } from "../components/common/Text/styled";
 import { getGoogleData } from "../utils/getGoogleData";
 import { getDataForMetaTags } from "../utils/dataForMetaTags";
@@ -105,31 +105,31 @@ const Home = ({ rating, ratingsTotal, reviews, openingHours, dataForMetaTags }) 
           <SubTitle lang='pl'>Serwis i naprawa sprzętu RTV i AGD wszystkich popularnych marek</SubTitle>
           <StyledText as='ul'>
             <li>
-              <StyledLink href={appUrls.naprawa_pralek} title='Naprawa pralek w Przemyślu'>
+              <StyledLink href={routes.naprawa_pralek} title='Naprawa pralek w Przemyślu'>
                 <strong>Pralki: </strong>
               </StyledLink>
               Bosch, Siemens, LG, Samsung, Whirlpool, Electrolux, Miele, Beko
             </li>
             <li>
-              <StyledLink href={appUrls.naprawa_suszarek} title='Naprawa suszarek w Przemyślu'>
+              <StyledLink href={routes.naprawa_suszarek} title='Naprawa suszarek w Przemyślu'>
                 <strong>Suszarki: </strong>
               </StyledLink>
               Bosch, Siemens, Whirlpool, Electrolux, Beko, Miele, Samsung
             </li>
             <li>
-              <StyledLink href={appUrls.naprawa_zmywarek} title='Naprawa zmywarek w Przemyślu'>
+              <StyledLink href={routes.naprawa_zmywarek} title='Naprawa zmywarek w Przemyślu'>
                 <strong>Zmywarki: </strong>
               </StyledLink>
               Bosch, Siemens, Whirlpool, Electrolux, Beko, Samsung, AEG
             </li>
             <li>
-              <StyledLink href={appUrls.naprawa_telewizorow} title='Naprawa telewizorów w Przemyślu'>
+              <StyledLink href={routes.naprawa_telewizorow} title='Naprawa telewizorów w Przemyślu'>
                 <strong>Telewizory: </strong>
               </StyledLink>
               LG, Samsung, Sony, Philips, Panasonic, TCL, Sharp, JVC
             </li>
             <li>
-              <StyledLink href={appUrls.naprawa_ekspresow} title='Naprawa ekspresów do kawy w Przemyślu'>
+              <StyledLink href={routes.naprawa_ekspresow} title='Naprawa ekspresów do kawy w Przemyślu'>
                 <strong>Ekspresy do kawy: </strong>
               </StyledLink>
               De’Longhi, Jura, Siemens, Bosch, Philips, Krups

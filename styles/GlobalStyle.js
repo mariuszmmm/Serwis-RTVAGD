@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import { rgba } from "polished";
 import { Lato } from 'next/font/google';
 
-const lato = Lato({ subsets: ['latin'], weight: '400' });
+const lato = Lato({ subsets: ['latin', 'latin-ext'], weight: ['400', '700'] });
 
 
 const GlobalStyle = createGlobalStyle`

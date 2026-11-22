@@ -9,7 +9,7 @@ import MetaTags from "../../components/common/MetaTags";
 import { getDataForMetaTags } from "../../utils/dataForMetaTags";
 import { ImageContainer } from "../../styles/kontakt/KontaktStyled";
 import { getGoogleData } from "../../utils/getGoogleData";
-import { appUrls } from "../../utils/urls";
+import { appUrls, routes } from "../../utils/urls";
 import { getImageParameters } from "../../utils/getImageParameters";
 import { formatOpeningHoursForDisplay } from "../../utils/openingHours";
 
@@ -33,7 +33,7 @@ const Contact = ({ rating, ratingsTotal, openingHours, dataForMetaTags }) => {
           <ContactInfo>
             <SubTitle>
               <StyledLink
-                href={appUrls.home}
+                href={routes.home}
                 title={serwis.name}
               >
                 {serwis.shortName}

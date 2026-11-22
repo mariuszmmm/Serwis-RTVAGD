@@ -8,6 +8,10 @@ export const StyledText = styled.p`
   margin: 0 0 1rem;
   text-align: justify;
   text-justify: inter-word;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}) {
+    text-align: ${({ $center, $disclaimer }) => ($center || $disclaimer ? "center" : "left")};
+  }
   
 
   ${({ $check, $cross, $list }) => ($check || $cross || $list) && css`
@@ -68,6 +72,10 @@ export const StyledText = styled.p`
     a {
       white-space: nowrap;
     }
+  `}
+
+  ${({ $center }) => $center && css`
+    text-align: center;
   `}
 
   h3 {

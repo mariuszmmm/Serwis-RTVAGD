@@ -23,6 +23,10 @@ export const HeaderContainer = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}) {
     padding: 0 10px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}) {
+    padding: 0 6px;
+  }
 `;
 
 export const NavList = styled.ul`
@@ -39,6 +43,10 @@ export const NavList = styled.ul`
     gap: 3px;
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}) {
+    gap: 1px;
+  }
+
   ::-webkit-scrollbar {
     display: none; 
   }
@@ -51,7 +59,7 @@ export const NavList = styled.ul`
 `;
 
 export const ListItem = styled.li`
-  font-size: clamp(0.3rem, 1.8vw, 0.9rem);
+  font-size: clamp(0.42rem, 1.8vw, 0.9rem);
   margin: 0 2px;
   
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}) {
@@ -70,6 +78,7 @@ export const StyledLink = styled(Link)`
   margin: 8px 0;
   transition: background-color 0.3s ease;
   display: flex;
+  white-space: nowrap;
   border-radius: 5px;
 
  
@@ -89,6 +98,10 @@ export const StyledLink = styled(Link)`
     ${({ $subNav }) => $subNav && css`
       margin: 0;
     `}
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}) {
+    padding: 4px 2px;
   }
 
   ${({ $active }) => $active && css`
@@ -112,5 +125,11 @@ export const Logo = styled(Link)`
   display: flex;
   /* flex-direction: row-reverse; */
   align-items: center;
+  white-space: nowrap;
   gap: 10px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}) {
+    gap: 3px;
+    padding-right: 2px;
+  }
 `;

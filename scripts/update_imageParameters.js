@@ -76,7 +76,7 @@ async function fetchImageData() {
       };
     });
 
-    const filePath = path.join(__dirname, '..', 'imageParameters.json');
+    const filePath = path.join(__dirname, '..', 'public', 'imageParameters.json');
 
     fs.writeFileSync(filePath, JSON.stringify(imageParameters, null, 2), 'utf-8');
     console.log('✅ imageParameters.json został wygenerowany!');

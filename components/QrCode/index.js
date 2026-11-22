@@ -37,23 +37,32 @@ export const QrCode = ({ hidden }) => {
     const preventScroll = (e) => {
       e.preventDefault();
     };
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+    let timerId;
 
     if (isOpen) {
-      setTimeout(() => {
+      timerId = setTimeout(() => {
         setDelay(false);
       }, 300);
       window.addEventListener("wheel", preventScroll, { passive: false });
       window.addEventListener("touchmove", preventScroll, { passive: false });
+      window.addEventListener("keydown", handleKeyDown);
       requestWakeLock();
     } else {
       releaseWakeLock();
     }
 
     return () => {
+      if (timerId) clearTimeout(timerId);
       releaseWakeLock();
       setDelay(true);
       window.removeEventListener("wheel", preventScroll);
       window.removeEventListener("touchmove", preventScroll);
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen]);
 
@@ -85,7 +94,6 @@ export const QrCode = ({ hidden }) => {
 
           const ctx = canvas.getContext('2d');
           const logo = new Image();
-          logo.src = logoUrl;
           logo.crossOrigin = 'Anonymous';
           logo.onload = () => {
             if (cancelled) return;
@@ -94,6 +102,12 @@ export const QrCode = ({ hidden }) => {
             ctx.drawImage(logo, logoX, logoY, logoSize, logoSize);
             setQrCodeSvg(canvas.toDataURL('image/png'));
           };
+          logo.onerror = () => {
+            if (!cancelled) {
+              setQrCodeSvg(canvas.toDataURL('image/png'));
+            }
+          };
+          logo.src = logoUrl;
         });
       } catch (err) {
         console.error('Failed to load qrcode library', err);
@@ -122,7 +136,7 @@ export const QrCode = ({ hidden }) => {
             <ImageWrapper $isOpen={isOpen}>
               <NextImage
                 src={qrCodeSvg}
-                alt="QrCode"
+                alt="Kod QR do wystawienia opinii"
                 fill
                 onLoad={() => setLoaded(true)}
                 // sizes="42px"

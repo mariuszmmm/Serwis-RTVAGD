@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { appUrls, imageUrls } from "../../../utils/urls";
+import { routes, imageUrls } from "../../../utils/urls";
 import { ImageWrapper } from "../../common/ImageWrapper";
 import { HeroImage } from "../../common/Hero/HeroImage";
 import { getCldImageUrl } from "next-cloudinary";
@@ -21,7 +21,7 @@ const Dishwasher = ({ show, setHold }) => {
       onMouseLeave={() => setHold(false)}
     >
       <Link
-        href={appUrls.naprawa_zmywarek}
+        href={routes.naprawa_zmywarek}
         title="Serwis zmywarek w Przemyślu"
       >
         <HeroImage

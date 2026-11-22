@@ -27,10 +27,10 @@
     "dev": "next dev",
     "build": "next build",
     "export": "next export",
-    "update-googleData": "node public/scripts/update_googleData.js",
-    "update-imageParameters": "node public/scripts/update_imageParameters.js",
-    "update-sitemap": "node public/scripts/update_sitemap.js",
-    "compare-googleData": "node public/scripts/compare_googleData.js"
+    "update-googleData": "node scripts/update_googleData.js",
+    "update-imageParameters": "node scripts/update_imageParameters.js",
+    "update-sitemap": "node scripts/update_sitemap.js",
+    "compare-googleData": "node scripts/compare-googleData.js"
   },
   "eslintConfig": {
     "extends": [

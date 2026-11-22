@@ -29,6 +29,8 @@ export default class MyDocument extends Document {
   }
 
   render() {
+    const gtmId = process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID || "GTM-P52JLLB7";
+
     return (
       <Html lang='pl'>
         <Head>
@@ -56,8 +58,7 @@ export default class MyDocument extends Document {
           <meta key='theme-color' name='theme-color' content='#141111' />
 
           {/* Security headers */}
-          <meta key='X-Content-Type-Options' httpEquiv='X-Content-Type-Options' content='nosniff' />
-          <meta key='Referrer-Policy' httpEquiv='Referrer-Policy' content='strict-origin-when-cross-origin' />
+          <meta key='referrer' name='referrer' content='strict-origin-when-cross-origin' />
 
         </Head>
         <body>
@@ -65,7 +66,7 @@ export default class MyDocument extends Document {
 
           <noscript>
             <iframe
-              src='https://www.googletagmanager.com/ns.html?id=GTM-P52JLLB7'
+              src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
               height='0'
               width='0'
               style={{ display: "none", visibility: "hidden" }}

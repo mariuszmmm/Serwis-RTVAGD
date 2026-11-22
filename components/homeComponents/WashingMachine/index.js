@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { appUrls, imageUrls } from "../../../utils/urls";
+import { routes, imageUrls } from "../../../utils/urls";
 import { ImageWrapper } from "../../common/ImageWrapper";
 import { HeroImage } from "../../common/Hero/HeroImage";
 import { getCldImageUrl } from "next-cloudinary";
@@ -22,7 +22,7 @@ const WashingMachine = ({ show, left, setHold }) => {
       $left={left}
     >
       <Link
-        href={appUrls.naprawa_pralek}
+        href={routes.naprawa_pralek}
         title="Serwis pralek w Przemyślu"
       >
         <HeroImage

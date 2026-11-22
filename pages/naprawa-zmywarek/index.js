@@ -3,7 +3,7 @@ import { Section } from '../../components/common/Section';
 import { Title } from '../../components/common/Title';
 import { SubTitle } from '../../components/common/SubTitle';
 import { Photo } from '../../components/common/Photo';
-import { appUrls } from '../../utils/urls';
+import { appUrls, routes } from '../../utils/urls';
 import MetaTags from '../../components/common/MetaTags';
 import { ButtonLink } from '../../components/common/ButtonLink';
 import { serwis } from '../../utils/serwis';
@@ -123,10 +123,10 @@ const DishwasherService = ({ rating, ratingsTotal, reviews, imageParameters, dat
               <StyledLink href={appUrls.naprawa_pralek}><strong>Naprawa pralek</strong></StyledLink>
             </li> */}
             <li>
-              <StyledLink href={appUrls.naprawa_telewizorow}><strong>Naprawa telewizorów</strong></StyledLink>
+              <StyledLink href={routes.naprawa_telewizorow}><strong>Naprawa telewizorów</strong></StyledLink>
             </li>
             <li>
-              <StyledLink href={appUrls.naprawa_suszarek}><strong>Naprawa suszarek do prania</strong></StyledLink>
+              <StyledLink href={routes.naprawa_suszarek}><strong>Naprawa suszarek do prania</strong></StyledLink>
             </li>
             {/* <li>
               <StyledLink href={appUrls.naprawa_ekspresow}><strong>Naprawa ekspresów do kawy</strong></StyledLink>

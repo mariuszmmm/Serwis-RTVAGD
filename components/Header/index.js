@@ -6,7 +6,7 @@ import SubNav from "./SubNav";
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 import { Emoticon } from "../common/Emoticon";
-import { appUrls, imageUrls } from "../../utils/urls";
+import { routes, imageUrls } from "../../utils/urls";
 import Image from "next/image";
 import { GoogleRating } from "../GoogleRating";
 const QrCode = dynamic(() => import("../QrCode").then((mod) => mod.QrCode), { ssr: false });
@@ -42,7 +42,7 @@ const Header = (props) => {
     // itemType="https://schema.org/WPHeader"
     >
       <HeaderContainer>
-        <Logo href={appUrls.home} title={`${serwis.subName}`}>
+        <Logo href={routes.home} title={`${serwis.subName}`}>
           <Emoticon $logo>
             <Image
               src={imageUrls.logo}
@@ -56,12 +56,12 @@ const Header = (props) => {
         <nav>
           <NavList>
             <ListItem>
-              <StyledLink href={appUrls.home} $active={pathname === "/"}>
+              <StyledLink href={routes.home} $active={pathname === "/"}>
                 Strona Główna
               </StyledLink>
             </ListItem>
             <ListItem>
-              <StyledLink href={appUrls.o_mnie} $active={pathname === "/o-mnie/"}>
+              <StyledLink href={routes.o_mnie} $active={pathname === "/o-mnie/"}>
                 O mnie
               </StyledLink>
             </ListItem>
@@ -76,12 +76,12 @@ const Header = (props) => {
               <SubNav showSubNav={showSubNav} />
             </ListItem>
             <ListItem>
-              <StyledLink href={appUrls.opinie} $active={pathname === "/opinie/"}>
+              <StyledLink href={routes.opinie} $active={pathname === "/opinie/"}>
                 Opinie
               </StyledLink>
             </ListItem>
             <ListItem>
-              <StyledLink href={appUrls.kontakt} $active={pathname === "/kontakt/"}>
+              <StyledLink href={routes.kontakt} $active={pathname === "/kontakt/"}>
                 Kontakt
               </StyledLink>
             </ListItem>

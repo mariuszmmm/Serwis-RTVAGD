@@ -2,7 +2,7 @@ import { Container } from "../../components/common/Container";
 import { Section } from "../../components/common/Section";
 import { Title } from "../../components/common/Title";
 import { SubTitle } from "../../components/common/SubTitle";
-import { appUrls, imageUrls } from "../../utils/urls";
+import { appUrls, imageUrls, routes } from "../../utils/urls";
 import { getDataForMetaTags } from "../../utils/dataForMetaTags";
 import MetaTags from "../../components/common/MetaTags";
 import { ButtonLink } from "../../components/common/ButtonLink";
@@ -172,7 +172,7 @@ const WashingMachineService = ({ rating, ratingsTotal, reviews, imageParameters,
           <SubTitle>Sprawdź też inne usługi</SubTitle>
           <StyledText as='ul' $list>
             <li>
-              <StyledLink href={appUrls.naprawa_suszarek}>
+              <StyledLink href={routes.naprawa_suszarek}>
                 <strong>Naprawa suszarek</strong>
               </StyledLink>
             </li>
@@ -183,7 +183,7 @@ const WashingMachineService = ({ rating, ratingsTotal, reviews, imageParameters,
               <StyledLink href={appUrls.naprawa_telewizorow}><strong>Naprawa telewizorów</strong></StyledLink>
             </li> */}
             <li>
-              <StyledLink href={appUrls.naprawa_ekspresow}>
+              <StyledLink href={routes.naprawa_ekspresow}>
                 <strong>Naprawa ekspresów do kawy</strong>
               </StyledLink>
             </li>

@@ -5,8 +5,8 @@ const axios = require("axios");
 const KEY = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
 const PLACE_ID = process.env.NEXT_PUBLIC_PLACE_ID;
 
-if (!KEY) {
-  console.error("Brakuje KEY w zmiennych środowiskowych.");
+if (!KEY || !PLACE_ID) {
+  console.error("Brakuje KEY lub PLACE_ID w zmiennych środowiskowych.");
   process.exit(1);
 }
 
@@ -95,7 +95,7 @@ async function fetchData() {
     const data = await fetchData();
     // Pozwól na podanie ścieżki do pliku jako argumentu, domyślnie public/googleData.json
     const argPath = process.argv[2];
-    const filePath = argPath ? argPath : path.join(__dirname, "..", "googleData.json");
+    const filePath = argPath ? argPath : path.join(__dirname, "..", "public", "googleData.json");
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf-8");
     console.log("✅ googleData.json został wygenerowany!");
     console.log("Ścieżka do pliku:", filePath);

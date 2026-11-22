@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { appUrls, imageUrls } from "../../../utils/urls";
+import { routes, imageUrls } from "../../../utils/urls";
 import { ImageWrapper } from "../../common/ImageWrapper";
 import { HeroImage } from "../../common/Hero/HeroImage";
 import { getCldImageUrl } from "next-cloudinary";
@@ -21,7 +21,7 @@ const CoffeeMachine = ({ show, setHold }) => {
       onMouseLeave={() => setHold(false)}
     >
       <Link
-        href={appUrls.naprawa_ekspresow}
+        href={routes.naprawa_ekspresow}
         title="Naprawa ekspresów do kawy w Przemyślu"
       >
         <HeroImage

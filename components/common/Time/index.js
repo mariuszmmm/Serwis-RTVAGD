@@ -3,16 +3,16 @@ import { pl } from 'date-fns/locale';
 import { FormattedDate } from "./styled";
 
 const Time = ({ time }) => {
-  const date = new Date(time * (typeof (time) === "number" ? 1000 : 1));
-  const formattedDate = format(date, 'd MMMM yyyy', { locale: pl });
+  if (!time) {
+    return <FormattedDate />;
+  }
 
-  return (
-    <>
-      <FormattedDate>
-        {time ? formattedDate : ""}
-      </FormattedDate>
-    </>
-  );
+  const date = new Date(time * (typeof time === "number" ? 1000 : 1));
+  const formattedDate = Number.isNaN(date.getTime())
+    ? ""
+    : format(date, "d MMMM yyyy", { locale: pl });
+
+  return <FormattedDate>{formattedDate}</FormattedDate>;
 };
 
 export default Time;

@@ -2,7 +2,7 @@ const fs = require("fs");
 require("dotenv").config({ path: ".env" });
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://naprawaprzemysl.pl";
 const path = require("path");
-const imageParameters = require("../imageParameters.json");
+const imageParameters = require("../public/imageParameters.json");
 
 const generateSitemap = async () => {
   const routes = {
@@ -67,18 +67,15 @@ const generateSitemap = async () => {
   };
 
   const urlsXml = Object.entries(routes)
-    .map(([route], index) => {
+    .map(([route]) => {
       const data = routes[route];
-      const imageBlock =
-        data.image && data.caption && data.title
-          ? [
-              `    <image:image>`,
-              `      <image:loc>${data.image}</image:loc>`,
-              `      <image:caption>${data.caption}</image:caption>`,
-              `      <image:title>${data.title}</image:title>`,
-              `    </image:image>`,
-            ].join("\n")
-          : "";
+      const imageBlock = data.image
+        ? [
+            `    <image:image>`,
+            `      <image:loc>${data.image}</image:loc>`,
+            `    </image:image>`,
+          ].join("\n")
+        : "";
       return [
         `  <url>`,
         `    <loc>${BASE_URL}${route}</loc>`,
@@ -106,7 +103,7 @@ const generateSitemap = async () => {
       throw new Error("❌ Błąd: NEXT_PUBLIC_BASE_URL nie jest ustawiony w zmiennych środowiskowych.");
     }
 
-    const filePath = path.join(__dirname, "..", "sitemap.xml");
+    const filePath = path.join(__dirname, "..", "public", "sitemap.xml");
     fs.writeFileSync(filePath, sitemap.trim());
     console.log("✅ sitemap.xml został wygenerowany!");
     console.log("Ścieżka do pliku:", filePath);
@@ -114,6 +111,7 @@ const generateSitemap = async () => {
     console.log(fs.readFileSync(filePath, "utf8"));
   } catch (err) {
     console.error("❌ Błąd podczas zapisu pliku:", err);
+    process.exit(1);
   }
 };
 

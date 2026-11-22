@@ -61,10 +61,12 @@ export const FooterText = styled.span`
 
 export const FooterCopy = styled.p`
   margin: 10px 0 3px;
-  font-size: clamp(0.2rem, 1.9vw, 0.6rem);
+  font-size: clamp(0.65rem, 1.9vw, 0.75rem);
   color: ${({ theme }) => theme.color.border};
   font-weight: 200;
-  width: max-content;
+  width: auto;
+  max-width: 100%;
+  line-height: 1.5;
   align-self: center;
 `;
 

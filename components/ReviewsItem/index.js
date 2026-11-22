@@ -14,13 +14,15 @@ const ReviewsItem = ({ reviewIndex, item }) => (
   <ItemWrapper id={`review${reviewIndex}`}>
     <Header>
       <Avatar>
-        <Image
-          src={item?.profile_photo_url}
-          alt={item?.author_name ? `Zdjęcie profilowe ${item.author_name}` : "Zdjęcie profilowe klienta"}
-          referrerPolicy="no-referrer"
-          loading='lazy'
-          fill
-        />
+        {item?.profile_photo_url && (
+          <Image
+            src={item.profile_photo_url}
+            alt={item?.author_name ? `Zdjęcie profilowe ${item.author_name}` : "Zdjęcie profilowe klienta"}
+            referrerPolicy="no-referrer"
+            loading='lazy'
+            fill
+          />
+        )}
       </Avatar>
       <Data>
         <Author>{item?.author_name}</Author>

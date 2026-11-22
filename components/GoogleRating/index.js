@@ -1,6 +1,6 @@
 import { getCldImageUrl } from "next-cloudinary";
 import { Stars } from "../../components/common/Stars";
-import { appUrls } from "../../utils/urls";
+import { routes } from "../../utils/urls";
 import { ImageWrapper, StyledLink, Text, Wrpper } from "./styled";
 
 export const GoogleRating = ({ rating, hidden }) => {
@@ -20,7 +20,7 @@ export const GoogleRating = ({ rating, hidden }) => {
           id="rating"
         >
           <StyledLink
-            href={appUrls.opinie}
+            href={routes.opinie}
             title="Poznaj opinie zadowolonych klientów! ⭐⭐⭐⭐⭐"
           >
             <ImageWrapper>
@@ -43,7 +43,7 @@ export const GoogleRating = ({ rating, hidden }) => {
               />
             </ImageWrapper>
             <Text>Google Rating {rating.toString().replace(".", ",")}</Text>
-            <Stars rating={5} center />
+            <Stars rating={rating} center />
           </StyledLink>
         </Wrpper>}
     </>

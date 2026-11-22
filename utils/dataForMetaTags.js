@@ -409,7 +409,7 @@ export const getDataForMetaTags = async (key) => {
         title: `Opinie o Serwisie RTV i AGD w Przemyślu ☎️ ${formattedPhoneNumber} | Sprawdź nas!`,
         canonical: appUrls.opinie,
         description:
-          "Przejrzyj opinie zadowolonych klientów Serwisu RTV i AGD w Przemyślu. Dowiedz się, dlaczego skorzystali własnie z tego serwisu.",
+          "Przejrzyj opinie zadowolonych klientów Serwisu RTV i AGD w Przemyślu. Dowiedz się, dlaczego skorzystali właśnie z tego serwisu.",
         imageAlt: "Technik serwisu RTV i AGD naprawiający sprzęt w Przemyślu",
         imageTitle: `Serwis RTV i AGD Przemyśl`,
         imageWidth: "931",

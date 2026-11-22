@@ -38,7 +38,7 @@ jobs:
           NEXT_PUBLIC_PLACE_ID: ${{ secrets.NEXT_PUBLIC_PLACE_ID }}
         run: |
           mkdir -p /tmp
-          node public/scripts/update_googleData.js /tmp/googleData.json
+          node scripts/update_googleData.js /tmp/googleData.json
 
       - name: Pobierz googleData.json z brancha data
         run: |
@@ -47,7 +47,7 @@ jobs:
 
       - name: Porównaj googleData.json bez update_time
         id: compare_googledata
-        run: node public/scripts/compare-googleData.js /tmp/googleData.json /tmp/googleData.repo.json
+        run: node scripts/compare-googleData.js /tmp/googleData.json /tmp/googleData.repo.json
         continue-on-error: true
 
       - name: Ustaw SHOULD_UPDATE na true (dla workflow update-main)

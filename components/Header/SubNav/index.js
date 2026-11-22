@@ -1,4 +1,4 @@
-import { appUrls } from "../../../utils/urls";
+import { routes } from "../../../utils/urls";
 import { ListItem, NavList, StyledLink } from "../styled";
 import { SubNavWrapper } from "./styled";
 import { usePathname } from 'next/navigation';
@@ -11,7 +11,7 @@ const SubNav = ({ showSubNav }) => {
       <NavList $subNav>
         <ListItem >
           <StyledLink
-            href={appUrls.naprawa_pralek}
+            href={routes.naprawa_pralek}
             $active={pathname === "/naprawa-pralek/" && showSubNav}
             $subNav
           >
@@ -20,7 +20,7 @@ const SubNav = ({ showSubNav }) => {
         </ListItem>
         <ListItem >
           <StyledLink
-            href={appUrls.naprawa_suszarek}
+            href={routes.naprawa_suszarek}
             $active={pathname === "/naprawa-suszarek/" && showSubNav}
             $subNav
           >
@@ -29,7 +29,7 @@ const SubNav = ({ showSubNav }) => {
         </ListItem>
         <ListItem >
           <StyledLink
-            href={appUrls.naprawa_zmywarek}
+            href={routes.naprawa_zmywarek}
             $active={pathname === "/naprawa-zmywarek/" && showSubNav}
             $subNav
           >
@@ -38,7 +38,7 @@ const SubNav = ({ showSubNav }) => {
         </ListItem>
         <ListItem >
           <StyledLink
-            href={appUrls.naprawa_ekspresow}
+            href={routes.naprawa_ekspresow}
             $active={pathname === "/naprawa-ekspresow/" && showSubNav}
             $subNav
           >
@@ -47,7 +47,7 @@ const SubNav = ({ showSubNav }) => {
         </ListItem>
         <ListItem >
           <StyledLink
-            href={appUrls.naprawa_telewizorow}
+            href={routes.naprawa_telewizorow}
             $active={pathname === "/naprawa-telewizorow/" && showSubNav}
             $subNav
           >

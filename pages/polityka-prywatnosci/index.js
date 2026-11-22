@@ -36,7 +36,7 @@ const PrivacyPolicy = ({ rating, ratingsTotal, dataForMetaTags }) => {
             </li>
             <li>
               telefon:{" "}
-              <StyledLink href={`tel:${serwis.phone.formatted}`} $standardText>
+              <StyledLink href={`tel:${serwis.phone.number}`} $standardText>
                 {serwis.phone.formatted}
               </StyledLink>
             </li>
@@ -118,7 +118,7 @@ const PrivacyPolicy = ({ rating, ratingsTotal, dataForMetaTags }) => {
           </Text>
 
           <SubTitle>Pliki cookies</SubTitle>
-          <Text>Serwis {serwis.site} wykorzystuje:</Text>
+          <Text>Serwis {serwis.url.site} wykorzystuje:</Text>
           <Text as='ul' $list>
             <li>niezbędne pliki cookies, konieczne do prawidłowego działania strony,</li>
             <li>opcjonalnie pliki cookies analityczne, jeśli zostaną włączone przez użytkownika.</li>
