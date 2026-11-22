@@ -11,7 +11,7 @@ if (!KEY) {
 }
 
 async function fetchData() {
-  const url = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${PLACE_ID}&fields=reviews,rating,user_ratings_total&language=pl&key=${KEY}`;
+  const url = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${PLACE_ID}&fields=reviews,rating,user_ratings_total,opening_hours&language=pl&key=${KEY}`;
   const aditionalUrl = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${PLACE_ID}&fields=reviews&language=pl&reviews_sort=newest&key=${KEY}`;
 
   const [res, aditionalRes] = await Promise.all([axios.get(url), axios.get(aditionalUrl)]);
@@ -38,6 +38,14 @@ async function fetchData() {
   const additionalReviews = aditionalJson.result.reviews;
   const rating = json.result.rating || 0;
   const user_ratings_total = json.result.user_ratings_total || 0;
+  const rawOpeningHours = json.result.opening_hours;
+  // Store only stable schedule fields; open_now fluctuates throughout the day.
+  const opening_hours = rawOpeningHours
+    ? {
+        periods: Array.isArray(rawOpeningHours.periods) ? rawOpeningHours.periods : [],
+        weekday_text: Array.isArray(rawOpeningHours.weekday_text) ? rawOpeningHours.weekday_text : [],
+      }
+    : null;
   const update_time = new Date().toISOString().replace("T", " ").substring(0, 19);
 
   const newReviews = reviews.map((item) => ({
@@ -77,6 +85,7 @@ async function fetchData() {
     reviews: sortedReviews,
     rating,
     user_ratings_total,
+    opening_hours,
     update_time,
   };
 }
