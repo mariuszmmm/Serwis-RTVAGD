@@ -11,12 +11,12 @@ import { getGoogleData } from "../../utils/getGoogleData";
 import { serwis } from "../../utils/serwis";
 import { getImageParameters } from "../../utils/getImageParameters";
 
-const About = ({ rating, ratingsTotal, dataForMetaTags }) => {
+const About = ({ rating, ratingsTotal, openingHours, dataForMetaTags }) => {
   const path = appUrls.o_mnie;
 
   return (
     <>
-      <MetaTags path={path} page={dataForMetaTags} rating={rating} ratingsTotal={ratingsTotal} />
+      <MetaTags path={path} page={dataForMetaTags} rating={rating} ratingsTotal={ratingsTotal} openingHours={openingHours} />
       <Container>
         <Section>
           <Title>O Serwisie RTV i AGD w&nbsp;Przemyślu</Title>

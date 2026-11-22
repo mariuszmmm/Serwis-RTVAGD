@@ -11,9 +11,11 @@ import { ImageContainer } from "../../styles/kontakt/KontaktStyled";
 import { getGoogleData } from "../../utils/getGoogleData";
 import { appUrls } from "../../utils/urls";
 import { getImageParameters } from "../../utils/getImageParameters";
+import { formatOpeningHoursForDisplay } from "../../utils/openingHours";
 
-const Contact = ({ rating, ratingsTotal, dataForMetaTags }) => {
+const Contact = ({ rating, ratingsTotal, openingHours, dataForMetaTags }) => {
   const path = appUrls.kontakt;
+  const openingHoursDisplay = formatOpeningHoursForDisplay(openingHours);
 
   return (
     <>
@@ -22,6 +24,7 @@ const Contact = ({ rating, ratingsTotal, dataForMetaTags }) => {
         page={dataForMetaTags}
         rating={rating}
         ratingsTotal={ratingsTotal}
+        openingHours={openingHours}
       />
       <ContactContainer>
         <Title>Kontakt</Title>
@@ -73,10 +76,9 @@ const Contact = ({ rating, ratingsTotal, dataForMetaTags }) => {
             <br />
             <ContactText>NIP: 7952257951</ContactText>
             <br />
-            <ContactText>Zapraszamy od poniedziałku do piątku</ContactText>
-            <ContactText>
-              w godzinach 9.30-17.00
-            </ContactText>
+            {openingHoursDisplay.lines.map((line) => (
+              <ContactText key={line}>{line}</ContactText>
+            ))}
             <ImageContainer>
               <Iframe />
             </ImageContainer>

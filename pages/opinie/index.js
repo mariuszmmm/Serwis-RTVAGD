@@ -14,7 +14,7 @@ import { Break } from "../../components/Break";
 import { appUrls } from "../../utils/urls";
 import { getImageParameters } from "../../utils/getImageParameters";
 
-const Reviews = ({ status, reviews, rating, ratingsTotal, dataForMetaTags }) => {
+const Reviews = ({ status, reviews, rating, ratingsTotal, openingHours, dataForMetaTags }) => {
   const path = appUrls.opinie;
 
   return (
@@ -25,6 +25,7 @@ const Reviews = ({ status, reviews, rating, ratingsTotal, dataForMetaTags }) => 
         rating={rating}
         ratingsTotal={ratingsTotal}
         reviews={reviews}
+        openingHours={openingHours}
       />
       <Container>
         <Section>
@@ -58,7 +59,7 @@ const Reviews = ({ status, reviews, rating, ratingsTotal, dataForMetaTags }) => 
               Zostaw swoją opinię
             </ButtonLink>
             <StyledText $disclaimer>
-              Prezentujemy wybrane, nieweryfikowane przez serwis opinie z Google.
+              Prezentujemy wybrane opinie pochodzące z wizytówki Google (bez dodatkowej weryfikacji przez serwis).
               <Break />
               Zobacz{" "}
               <StyledLink

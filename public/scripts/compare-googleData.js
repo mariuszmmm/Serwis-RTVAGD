@@ -17,9 +17,13 @@ function readJson(filePath) {
 const newData = readJson(newPath);
 const repoData = readJson(repoPath);
 
-function stripUpdateTime(obj) {
+function stripVolatileFields(obj) {
   if (!obj) return null;
   const { update_time, ...rest } = obj;
+  if (rest.opening_hours && typeof rest.opening_hours === "object") {
+    const { open_now, ...stableOpeningHours } = rest.opening_hours;
+    rest.opening_hours = stableOpeningHours;
+  }
   return rest;
 }
 
@@ -42,8 +46,8 @@ function sortObject(obj) {
   return obj;
 }
 
-const strippedNew = stripUpdateTime(newData);
-const strippedRepo = stripUpdateTime(repoData);
+const strippedNew = stripVolatileFields(newData);
+const strippedRepo = stripVolatileFields(repoData);
 const a = JSON.stringify(sortObject(strippedNew));
 const b = JSON.stringify(sortObject(strippedRepo));
 

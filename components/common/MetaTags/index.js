@@ -2,8 +2,9 @@ import Head from "next/head";
 import { formattedDate } from "../../../utils/formattedDate";
 import { appUrls, baseUrl } from "../../../utils/urls";
 import { serwis } from "../../../utils/serwis";
+import { buildOpeningHoursSpecification } from "../../../utils/openingHours";
 
-const MetaTags = ({ path, page, rating, ratingsTotal, reviews, imageSrcSet, imageSizes, href }) => {
+const MetaTags = ({ path, page, rating, ratingsTotal, reviews, openingHours, imageSrcSet, imageSizes, href }) => {
   const {
     title,
     ogTitle,
@@ -85,8 +86,11 @@ const MetaTags = ({ path, page, rating, ratingsTotal, reviews, imageSrcSet, imag
     ...service,
   };
 
+  const dynamicOpeningHoursSpec = buildOpeningHoursSpecification(openingHours);
+
   const localBusinessSchema = {
     ...localBusiness,
+    ...(dynamicOpeningHoursSpec ? { openingHoursSpecification: dynamicOpeningHoursSpec } : {}),
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: (rating || serwis.rating).toString(),

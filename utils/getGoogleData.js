@@ -3,7 +3,7 @@ import { dataUrl } from "./urls";
 import { serwis } from "./serwis";
 import data from "../public/googleData.json";
 
-const formatGoogleData = (reviews, ratingsTotal, rating) => {
+const formatGoogleData = (reviews, ratingsTotal, rating, openingHours = null) => {
   if (!Array.isArray(reviews) || !ratingsTotal || !rating) {
     throw new Error("Invalid response from Google Places API");
   }
@@ -29,24 +29,42 @@ const formatGoogleData = (reviews, ratingsTotal, rating) => {
     reviews: selectedReviews || [],
     ratingsTotal: ratingsTotal || null,
     rating: rating || null,
+    openingHours: openingHours || null,
   };
 };
 
+const hasValidLocalData =
+  Boolean(data) &&
+  Array.isArray(data.reviews) &&
+  Boolean(data.user_ratings_total) &&
+  Boolean(data.rating);
+
 export const getGoogleData = async () => {
+  if (process.env.CI === "true" && hasValidLocalData) {
+    return formatGoogleData(
+      data.reviews,
+      data.user_ratings_total,
+      data.rating,
+      data.opening_hours || null
+    );
+  }
+
   try {
     const response = await axios.get(dataUrl);
     const reviews = response.data.reviews || [];
     const ratingsTotal = response.data.user_ratings_total || null;
     const rating = response.data.rating || null;
+    const openingHours = response.data.opening_hours || data.opening_hours || null;
 
-    return formatGoogleData(reviews, ratingsTotal, rating);
+    return formatGoogleData(reviews, ratingsTotal, rating, openingHours);
   } catch (error) {
     console.error("Error fetching data from Google Places API:", error);
 
     const reviews = data.reviews || [];
     const ratingsTotal = data.user_ratings_total || null;
     const rating = data.rating || null;
+    const openingHours = data.opening_hours || null;
 
-    return formatGoogleData(reviews, ratingsTotal, rating);
+    return formatGoogleData(reviews, ratingsTotal, rating, openingHours);
   }
 };

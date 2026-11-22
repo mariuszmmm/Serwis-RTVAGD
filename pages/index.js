@@ -22,7 +22,7 @@ import { getGoogleData } from "../utils/getGoogleData";
 import { getDataForMetaTags } from "../utils/dataForMetaTags";
 import { getImageParameters } from "../utils/getImageParameters";
 
-const Home = ({ rating, ratingsTotal, reviews, dataForMetaTags }) => {
+const Home = ({ rating, ratingsTotal, reviews, openingHours, dataForMetaTags }) => {
   const path = appUrls.home;
   const [isPortrait, setIsPortrait] = useState(true);
   const [activeScene, setActiveScene] = useState({
@@ -85,7 +85,7 @@ const Home = ({ rating, ratingsTotal, reviews, dataForMetaTags }) => {
 
   return (
     <>
-      <MetaTags path={path} page={dataForMetaTags} rating={rating} ratingsTotal={ratingsTotal} reviews={reviews} />
+      <MetaTags path={path} page={dataForMetaTags} rating={rating} ratingsTotal={ratingsTotal} reviews={reviews} openingHours={openingHours} />
       <HeroMain>
         <HeroHeader>
           <HeroTitle lang='pl'>Serwis RTV i AGD w&nbsp;Przemyślu</HeroTitle>

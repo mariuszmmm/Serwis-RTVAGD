@@ -32,8 +32,6 @@ export const getDataForMetaTags = async (key) => {
     longitude: "22.7760291",
   };
 
-  const openingHours = "Mo, Tu, We, Th, Fr, 09:30-17:00";
-
   const website = {
     "@type": "WebSite",
     "@id": appUrls.home + "#website",
@@ -71,13 +69,12 @@ export const getDataForMetaTags = async (key) => {
     address,
     geo,
     hasMap: serwis.url.GMF,
-    // openingHours,
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "09:30",
-        closes: "17:00",
+        opens: "10:00",
+        closes: "16:00",
       },
     ],
     priceRange: "100-500 PLN",
