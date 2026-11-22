@@ -8,8 +8,6 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://res.cloudinary.com/difc0i71u/image/upload/c_limit,w_931/f_webp/q_auto/v1755230400/Serwis/serwis-rtv-agd?_a=BAVMn6ID0</image:loc>
-      <image:caption>Profesjonalna naprawa sprzętu RTV i AGD w Przemyślu.</image:caption>
-      <image:title>Serwis RTV i AGD Przemyśl</image:title>
     </image:image>
   </url>
   <url>
@@ -19,8 +17,6 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://res.cloudinary.com/difc0i71u/image/upload/c_limit,w_700/f_webp/q_auto/v1754622763/Serwis/naprawa-pralek?_a=BAVMn6ID0</image:loc>
-      <image:caption>Profesjonalna naprawa pralek w Przemyślu.</image:caption>
-      <image:title>Serwis Pralek Przemyśl</image:title>
     </image:image>
   </url>
   <url>
@@ -30,8 +26,6 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://res.cloudinary.com/difc0i71u/image/upload/c_limit,w_869/f_webp/q_auto/v1754622763/Serwis/naprawa-suszarek?_a=BAVMn6ID0</image:loc>
-      <image:caption>Profesjonalna naprawa suszarek do prania w Przemyślu.</image:caption>
-      <image:title>Serwis Suszarek Przemyśl</image:title>
     </image:image>
   </url>
   <url>
@@ -41,8 +35,6 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://res.cloudinary.com/difc0i71u/image/upload/c_limit,w_1024/f_webp/q_auto/v1755867034/Serwis/naprawa-zmywarek?_a=BAVMn6ID0</image:loc>
-      <image:caption>Profesjonalna naprawa zmywarek w Przemyślu.</image:caption>
-      <image:title>Serwis Zmywarek Przemyśl</image:title>
     </image:image>
   </url>
   <url>
@@ -52,8 +44,6 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://res.cloudinary.com/difc0i71u/image/upload/c_limit,w_700/f_webp/q_auto/v1754622763/Serwis/naprawa-ekspresow?_a=BAVMn6ID0</image:loc>
-      <image:caption>Profesjonalna naprawa ekspresów do kawy w Przemyślu.</image:caption>
-      <image:title>Serwis Ekspresów do Kawy Przemyśl</image:title>
     </image:image>
   </url>
   <url>
@@ -63,8 +53,6 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://res.cloudinary.com/difc0i71u/image/upload/c_limit,w_700/f_webp/q_auto/v1754622763/Serwis/naprawa-telewizorow?_a=BAVMn6ID0</image:loc>
-      <image:caption>Profesjonalna naprawa telewizorów w Przemyślu.</image:caption>
-      <image:title>Serwis Telewizorów Przemyśl</image:title>
     </image:image>
   </url>
   <url>
