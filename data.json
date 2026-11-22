@@ -31,5 +31,68 @@
   ],
   "rating": 4.6,
   "user_ratings_total": 82,
-  "update_time": "2026-11-19 20:40:23"
+  "opening_hours": {
+    "periods": [
+      {
+        "close": {
+          "day": 1,
+          "time": "1600"
+        },
+        "open": {
+          "day": 1,
+          "time": "1000"
+        }
+      },
+      {
+        "close": {
+          "day": 2,
+          "time": "1600"
+        },
+        "open": {
+          "day": 2,
+          "time": "1000"
+        }
+      },
+      {
+        "close": {
+          "day": 3,
+          "time": "1600"
+        },
+        "open": {
+          "day": 3,
+          "time": "1000"
+        }
+      },
+      {
+        "close": {
+          "day": 4,
+          "time": "1600"
+        },
+        "open": {
+          "day": 4,
+          "time": "1000"
+        }
+      },
+      {
+        "close": {
+          "day": 5,
+          "time": "1600"
+        },
+        "open": {
+          "day": 5,
+          "time": "1000"
+        }
+      }
+    ],
+    "weekday_text": [
+      "poniedziałek: 10:00–16:00",
+      "wtorek: 10:00–16:00",
+      "środa: 10:00–16:00",
+      "czwartek: 10:00–16:00",
+      "piątek: 10:00–16:00",
+      "sobota: Zamknięte",
+      "niedziela: Zamknięte"
+    ]
+  },
+  "update_time": "2026-11-22 07:40:19"
 }
